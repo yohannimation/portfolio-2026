@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <section>
+      <section id="test">
         bla<br/>
         bla<br/>
         bla<br/>
