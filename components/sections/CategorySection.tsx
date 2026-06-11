@@ -3,7 +3,11 @@
 // UI components
 import Anchor from "@/components/ui/anchor";
 import FlowingMenu from "@/components/FlowingMenu";
+import { Separator } from "@/components/ui/separator";
+
+// Animation components
 import AnimatedContent from "../AnimatedContent";
+import CurvedLoop from "../CurvedLoop";
 
 interface category {
   id: number,
@@ -43,7 +47,7 @@ export default function CategorySection() {
         <h2>CATEGORIES</h2>
         <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
 
-        <div className="relative h-[20dvh] mx-auto my-20 max-w-full lg:max-w-[75%] overflow-hidden">
+        <div className="relative mx-auto my-20 max-w-full lg:max-w-[75%] h-[20dvh] overflow-hidden">
           <FlowingMenu
             items={categoryItems}
             speed={10}
@@ -53,6 +57,12 @@ export default function CategorySection() {
             borderColor="var(--primary)"
           />
         </div>
+
+        <CurvedLoop
+          marqueeText="Instagram * Plus à voir sur GitHUB et"
+          curveAmount={100}
+        />
+
       </AnimatedContent>
     </section>
   );
