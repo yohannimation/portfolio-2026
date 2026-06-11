@@ -3,6 +3,7 @@
 // UI components
 import Anchor from "@/components/ui/anchor";
 import FlowingMenu from "@/components/FlowingMenu";
+import AnimatedContent from "../AnimatedContent";
 
 interface category {
   id: number,
@@ -35,19 +36,24 @@ export default function CategorySection() {
 
   return (
     <section id="categories" className="relative h-dvh px-5 sm:px-20 py-30">
-      <h2>CATEGORIES</h2>
-      <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
+      <AnimatedContent
+        container="categories"
+        delay={.5}
+      >
+        <h2>CATEGORIES</h2>
+        <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
 
-      <div className="relative h-[20dvh] mx-auto my-20 max-w-full lg:max-w-[75%] overflow-hidden">
-        <FlowingMenu
-          items={categoryItems}
-          speed={10}
-          bgColor="var(--primary-foreground)"
-          textColor="var(--foreground)"
-          marqueeBgColor="var(--secondary)"
-          borderColor="var(--primary)"
-        />
-      </div>
+        <div className="relative h-[20dvh] mx-auto my-20 max-w-full lg:max-w-[75%] overflow-hidden">
+          <FlowingMenu
+            items={categoryItems}
+            speed={10}
+            bgColor="var(--primary-foreground)"
+            textColor="var(--foreground)"
+            marqueeBgColor="var(--secondary)"
+            borderColor="var(--primary)"
+          />
+        </div>
+      </AnimatedContent>
     </section>
   );
 }
