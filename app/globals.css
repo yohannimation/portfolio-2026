@@ -51,14 +51,14 @@
 :root {
   --background: #f2ffee;
   --foreground: #1b1d24;
-  --card: #f2ffee;
+  --card: white;
   --card-foreground: #1b1d24;
-  --popover: #f2ffee;
+  --popover: white;
   --popover-foreground: #1b1d24;
   --primary: #388423;
-  --primary-foreground: #f2ffee;
+  --primary-foreground: white;
   --secondary: #48c634;
-  --secondary-foreground: #f2ffee;
+  --secondary-foreground: white;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -129,25 +129,29 @@
   }
 }
 
-h1, h2, h3 {
+h1, .h1,
+h2, .h2,
+h3, .h3
+{
   font-family: var(--font-moon-get);
 }
+
 h1.hero {
   font-size: clamp(2.1875rem, 8vw, 8rem);
 }
-h1 {
+
+h1, .h1
+{
   font-size: clamp(2.3rem, 3vw, 3rem);
   margin-bottom: .6rem;
 }
-h2 {
+h2, .h2
+{
   font-size: clamp(1.5rem, 2.3vw, 2.3rem);
   margin-bottom: .5rem;
 }
-h3 {
+h3 .h3
+{
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   margin-bottom: .3rem;
-}
-
-p {
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
 }
