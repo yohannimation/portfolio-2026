@@ -5,8 +5,8 @@ import Anchor from "@/components/ui/anchor";
 import FlowingMenu from "@/components/FlowingMenu";
 
 // Animation components
-import AnimatedContent from "../AnimatedContent";
-import CurvedLoop from "../CurvedLoop";
+import AnimatedContent from "@/components/AnimatedContent";
+import CurvedLoop from "@/components/CurvedLoop";
 
 interface category {
   id: number,
