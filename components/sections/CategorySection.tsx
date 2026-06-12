@@ -3,7 +3,6 @@
 // UI components
 import Anchor from "@/components/ui/anchor";
 import FlowingMenu from "@/components/FlowingMenu";
-import { Separator } from "@/components/ui/separator";
 
 // Animation components
 import AnimatedContent from "../AnimatedContent";
@@ -39,15 +38,24 @@ export default function CategorySection() {
   }));
 
   return (
-    <section id="categories" className="relative h-dvh px-5 sm:px-20 py-30">
+    <section id="categories" className="relative h-dvh px-5 sm:px-20">
       <AnimatedContent
         container="categories"
         delay={.5}
+        className="
+          flex
+          flex-col
+          justify-center
+          gap-[12dvh]
+          h-full
+        "
       >
-        <h2>CATEGORIES</h2>
-        <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
+        <div>
+          <h2>CATEGORIES</h2>
+          <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
+        </div>
 
-        <div className="relative mx-auto my-20 max-w-full lg:max-w-[75%] h-[20dvh] overflow-hidden">
+        <div className="relative mx-auto w-full max-w-full lg:max-w-[75%] h-[20dvh] overflow-hidden">
           <FlowingMenu
             items={categoryItems}
             speed={10}
