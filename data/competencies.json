@@ -1,0 +1,202 @@
+[
+    {
+        "id": "frontend",
+        "name": "Front-End",
+        "competency": [
+            {
+                "name": "JavaScript",
+                "icon": "javascript"
+            },
+            {
+                "name": "TypeScript",
+                "icon": "typescript"
+            },
+            {
+                "name": "React.JS",
+                "icon": "react"
+            },
+            {
+                "name": "Next.JS",
+                "icon": "nextdotjs"
+            },
+            {
+                "name": "Vue.JS",
+                "icon": "vuedotjs"
+            },
+            {
+                "name": "Angular",
+                "icon": "angular"
+            },
+            {
+                "name": "Node.JS",
+                "icon": "nodedotjs"
+            },
+            {
+                "name": "Nest.JS",
+                "icon": "nestjs"
+            },
+            {
+                "name": "Express.JS",
+                "icon": "express"
+            },
+            {
+                "name": "Fastify",
+                "icon": "fastify"
+            },
+            {
+                "name": "JWT (Json Web Token)",
+                "icon": "jsonwebtokens"
+            },
+            {
+                "name": "Socket.io",
+                "icon": "socketdotio"
+            },
+            {
+                "name": "PWA (Progressive Web App)",
+                "icon": "pwa"
+            }
+        ]
+    },
+    {
+        "id": "backend",
+        "name": "Back-End",
+        "competency": [
+            {
+                "name": "PHP",
+                "icon": "php"
+            },
+            {
+                "name": "MySQL",
+                "icon": "mysql"
+            },
+            {
+                "name": "PostgreSQL",
+                "icon": "postgresql"
+            },
+            {
+                "name": "Symfony",
+                "icon": "symfony"
+            },
+            {
+                "name": "PrestaShop",
+                "icon": "prestashop"
+            },
+            {
+                "name": "Prisma",
+                "icon": "prisma"
+            },
+            {
+                "name": "Doctrine",
+                "icon": "doctrine"
+            }
+        ]
+    },
+    {
+        "id": "design",
+        "name": "Design",
+        "competency": [
+            {
+                "name": "CSS",
+                "icon": "css"
+            },
+            {
+                "name": "SASS",
+                "icon": "sass"
+            },
+            {
+                "name": "Bootstrap",
+                "icon": "bootstrap"
+            },
+            {
+                "name": "TailwindCSS",
+                "icon": "tailwindcss"
+            },
+            {
+                "name": "Shadcn",
+                "icon": "shadcnui"
+            },
+            {
+                "name": "Ant Design",
+                "icon": "antdesign"
+            },
+            {
+                "name": "Prime React",
+                "icon": "primereact"
+            }
+        ]
+    },
+    {
+        "id": "tools",
+        "name": "Tools",
+        "competency": [
+            {
+                "name": "Git",
+                "icon": "git"
+            },
+            {
+                "name": "Docker",
+                "icon": "docker"
+            },
+            {
+                "name": "Figma",
+                "icon": "figma"
+            }
+        ]
+    },
+    {
+        "id": "animation",
+        "name": "Animation",
+        "competency": [
+            {
+                "name": "Blender",
+                "icon": "blender"
+            },
+            {
+                "name": "After effect",
+                "icon": null
+            },
+            {
+                "name": "Illustrator",
+                "icon": null
+            },
+            {
+                "name": "Photoshop",
+                "icon": null
+            },
+            {
+                "name": "Premiere pro",
+                "icon": null
+            }
+        ]
+    },
+    {
+        "id": "compagnie",
+        "name": "Entreprise",
+        "competency": [
+            {
+                "name": "Relation client",
+                "icon": null
+            },
+            {
+                "name": "Détermination du besoin",
+                "icon": null
+            },
+            {
+                "name": "Analyse de solution",
+                "icon": null
+            },
+            {
+                "name": "Force de proposition",
+                "icon": null
+            },
+            {
+                "name": "Organisé",
+                "icon": null
+            },
+            {
+                "name": "Méthodologie agile",
+                "icon": null
+            }
+        ]
+    }
+]

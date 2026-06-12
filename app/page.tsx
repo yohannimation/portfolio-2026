@@ -1,5 +1,5 @@
 import CategorySection from "@/components/sections/Home/CategorySection";
-import CompetenceSection from "@/components/sections/Home/CompetenceSection";
+import CompetencySection from "@/components/sections/Home/CompetencySection";
 import HeroSection from "@/components/sections/Home/HeroSection";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <HeroSection />
       <CategorySection />
-      <CompetenceSection />
+      <CompetencySection />
     </>
   );
 }

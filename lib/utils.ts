@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+import * as simpleIcons from "simple-icons"
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -21,4 +23,13 @@ export function useIsMobile() {
   }, []);
 
   return isMobile;
+}
+
+export function getBrandColor(iconName: string|null) {
+  if (!iconName) return "var(--foreground)"
+
+  const key = `si${iconName.charAt(0).toUpperCase()}${iconName.slice(1)}`
+  const icon = (simpleIcons as any)[key]
+
+  return icon?.hex ? `#${icon.hex}` : "var(--foreground)"
 }
