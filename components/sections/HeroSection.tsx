@@ -19,7 +19,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-dvh">
-      <div className="relative flex flex-col gap-8 justify-center w-full h-full px-5 sm:px-20 z-1">
+      <div className="relative flex flex-col gap-[5dvh] justify-center w-full h-full px-5 sm:px-20 z-1">
         <FadeContent
           duration={1}
           delay={1.5}
@@ -54,7 +54,7 @@ export default function HeroSection() {
         />
 
         <FadeContent duration={1} delay={1.5}>
-          <div className="flex flex-col items-center justify-end lg:flex-row gap-10">
+          <div className="flex flex-col lg:items-center justify-end lg:flex-row gap-2 lg:gap-10">
             <p className="p-1 w-fit rounded-sm">
               Étant passionné de création visuel et d'animations,
               <br />
