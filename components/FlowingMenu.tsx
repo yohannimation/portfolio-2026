@@ -37,10 +37,11 @@ const FlowingMenu: React.FC<FlowingMenuProps> = ({
 }) => {
   return (
     <div
-      className="w-full h-full overflow-hidden rounded-md"
+      className="w-full overflow-hidden rounded-md"
       style={{
         backgroundColor: bgColor,
-        border: `1px solid ${borderColor}`
+        border: `1px solid ${borderColor}`,
+        height: `calc(87px * ${items.length})`
       }}
     >
       <nav className="flex flex-col h-full m-0 p-0">
