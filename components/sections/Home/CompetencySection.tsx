@@ -71,7 +71,7 @@ export default function CompetencySection() {
     <section id="competencies" className="relative min-h-dvh px-5 py-[5dvh] sm:px-20">
       <AnimatedContent
         container="competencies"
-        delay={.5}
+        delay={.2}
         className="
           flex
           flex-col
