@@ -7,9 +7,9 @@ const HeroBackground = dynamic(() => import('@/components/decorative/HeroBackgro
 });
 
 // UI components
-import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
-import Cta from "@/components/ui/cta";
+import ElasticButton from '@/components/ui/elasticButton';
+import Image from 'next/image';
 
 // Animation components
 import FadeContent from "@/components/FadeContent";
@@ -20,6 +20,8 @@ import { useLayoutEffect, useRef } from 'react';
 
 // Icons
 import { ArrowDown, Briefcase } from "lucide-react";
+
+
 
 export default function HeroSection() {
   const date = new Date();
@@ -75,10 +77,12 @@ export default function HeroSection() {
               <br />
               je suis ouvert à tous type de projets.
             </p>
-            <Cta size="xxl">
+            <ElasticButton
+              onClick={() => { document.getElementById("category")?.scrollIntoView(); }}
+            >
               <ArrowDown className="size-5 mt-1 animate-bounce" />
               Catégories
-            </Cta>
+            </ElasticButton>
           </div>
         </FadeContent>
       </div>
