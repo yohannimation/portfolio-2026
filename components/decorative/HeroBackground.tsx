@@ -15,16 +15,13 @@ export default function HeroBackground() {
         gradientFrom="black"
         gradientTo="#48c634"
         glowColor="transparent"
-        className="absolute
-        inset-0"
-      />
-      <span
         className="
           absolute
           inset-0
-          bg-linear-to-b from-transparent from-75% to-background to-100%
+          
+
         "
-      ></span>
+      />
     </>
   );
 }

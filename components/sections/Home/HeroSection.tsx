@@ -1,14 +1,19 @@
 "use client";
 
 // Decorative components
-import HeroBackground from "@/components/decorative/HeroBackground";
+import dynamic from 'next/dynamic';
+const HeroBackground = dynamic(() => import('@/components/decorative/HeroBackground'), {
+  ssr: false,
+});
 
 // UI components
+import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
 import Cta from "@/components/ui/cta";
 
 // Animation components
 import FadeContent from "@/components/FadeContent";
+import ScrollVelocity from '@/components/ScrollVelocity';
 import SplitText from "@/components/SplitText";
 
 // Icons
@@ -34,7 +39,7 @@ export default function HeroSection() {
             <Badge variant="outline" className="relative mt-1 overflow-visible">
               <Briefcase data-icon="inline-start" />
               Open to work
-              <span className="absolute inset-x-[23] inset-y-[1] block bg-primary -z-1 rounded-full animate-ping"></span>
+              <span className="absolute inset-x-[35] inset-y-[3] block bg-primary -z-1 rounded-full animate-ping"></span>
             </Badge>
           </div>
         </FadeContent>
@@ -66,6 +71,16 @@ export default function HeroSection() {
             </Cta>
           </div>
         </FadeContent>
+      </div>
+
+      <div className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary z-1 overflow-hidden'>
+        <ScrollVelocity
+          texts={[<>YOHANNIMATION&nbsp;<Image src={"/images/happy-mascot.png"} width={32} height={32} alt='Yohannimation mascot' loading="lazy" /></>]}
+          velocity={90}
+          damping={100}
+          stiffness={600}
+          numCopies={8}
+        />
       </div>
 
       <HeroBackground />
