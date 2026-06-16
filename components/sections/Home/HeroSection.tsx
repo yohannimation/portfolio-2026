@@ -15,12 +15,22 @@ import Cta from "@/components/ui/cta";
 import FadeContent from "@/components/FadeContent";
 import ScrollVelocity from '@/components/ScrollVelocity';
 import SplitText from "@/components/SplitText";
+import gsap from 'gsap';
+import { useLayoutEffect, useRef } from 'react';
 
 // Icons
 import { ArrowDown, Briefcase } from "lucide-react";
 
 export default function HeroSection() {
   const date = new Date();
+  const scrollVelocityRef = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.fromTo(scrollVelocityRef.current,
+      { yPercent: 100 },
+      { yPercent: 0, duration: 1, ease: "power3.out", delay: 2 }
+    );
+  }, []);
 
   return (
     <section className="relative h-dvh">
@@ -73,7 +83,7 @@ export default function HeroSection() {
         </FadeContent>
       </div>
 
-      <div className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary z-1 overflow-hidden'>
+      <div ref={scrollVelocityRef} className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary z-1 overflow-hidden'>
         <ScrollVelocity
           texts={[<>YOHANNIMATION&nbsp;<Image src={"/images/happy-mascot.png"} width={32} height={32} alt='Yohannimation mascot' loading="lazy" /></>]}
           velocity={90}
