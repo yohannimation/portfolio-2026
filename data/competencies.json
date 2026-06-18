@@ -138,6 +138,10 @@
                 "icon": "docker"
             },
             {
+                "name": "VSCode",
+                "icon": null
+            },
+            {
                 "name": "Figma",
                 "icon": "figma"
             }
