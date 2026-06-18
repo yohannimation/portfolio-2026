@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "title": "Informations diverses :",
+      "items": [
+        { "type": "email", "email": "renauldyohann@gmail.com" },
+        {
+          "type": "link",
+          "label": "Mon CV",
+          "href": "",
+          "target": "_blank",
+          "title": "Télécharger mon CV"
+        },
+        { "type": "link", "label": "Mentions légales", "href": "" }
+      ]
+    },
+    {
+      "title": "Mes réseaux sociaux :",
+      "items": [
+        {
+          "type": "link",
+          "label": "GitHub",
+          "href": "https://github.com/yohannimation/",
+          "target": "_blank",
+          "title": "Visiter mon GitHub"
+        },
+        {
+          "type": "link",
+          "label": "LinkedIn",
+          "href": "https://fr.linkedin.com/in/yohann-renauld?trk=public_profile_browsemap",
+          "target": "_blank",
+          "title": "Visiter mon LinkedIn"
+        },
+        {
+          "type": "link",
+          "label": "Instagram",
+          "href": "https://www.instagram.com/yohannimation/",
+          "target": "_blank",
+          "title": "Visiter mon Instagram"
+        }
+      ]
+    }
+  ]
+}

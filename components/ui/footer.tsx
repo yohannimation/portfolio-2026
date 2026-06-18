@@ -1,7 +1,23 @@
 "use client";
-
 import { useLayoutEffect, useRef } from "react";
+
+// UI components
 import Anchor from "@/components/ui/anchor";
+import MyEmail from "@/components/ui/myEmail";
+
+// Icons
+import { SquareArrowOutUpRight } from "lucide-react";
+
+import footerData from "@/data/footer.json";
+
+type FooterItem = {
+  type: "link" | "email";
+  label?: string;
+  email?: string;
+  href?: string;
+  target?: "_blank";
+  title?: string;
+};
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -34,38 +50,28 @@ export default function Footer() {
       "
     >
       <div className="flex flex-col md:flex-row gap-5 md:gap-10">
-        <div>
-          <p className="mb-1 underline">Informations diverses :</p>
-          <ul className="flex flex-col gap-1 ml-5">
-            <li>
-              <Anchor href="" target="_blank" title="Copier l'email">renauldyohann@gmail.com</Anchor>
-            </li>
-            <li>
-              <Anchor href="" title="Télécharger mon CV">Mon CV</Anchor>
-            </li>
-            <li>
-              <Anchor href="">Mentions légales</Anchor>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p className="mb-1 underline">Mes réseaux sociaux :</p>
-          <ul className="flex flex-col gap-1 ml-5">
-            <li>
-              <Anchor href="" target="_blank" title="Visiter mon GitHub">GitHub</Anchor>
-            </li>
-            <li>
-              <Anchor href="" target="_blank" title="Visiter mon LinkedIn">LinkedIn</Anchor>
-            </li>
-            <li>
-              <Anchor href="" target="_blank" title="Visiter mon Instagram">Instagram</Anchor>
-            </li>
-          </ul>
-        </div>
+        {footerData.sections.map((section) => (
+          <div key={section.title}>
+            <p className="mb-1 underline">{section.title}</p>
+            <ul className="flex flex-col gap-1 ml-5">
+              {(section.items as FooterItem[]).map((item) =>
+                item.type === "email" ? (
+                  <li key={item.email}>
+                    <MyEmail email={item.email!} />
+                  </li>
+                ) : (
+                  <li key={item.label}>
+                    <Anchor href={item.href!} target={item.target} title={item.title}>
+                      {item.label} {item.target === "_blank" && <SquareArrowOutUpRight size={18} />}
+                    </Anchor>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+        ))}
       </div>
-      <div>
-        Mascotte qui regarde à gauche
-      </div>
+      <div>Mascotte qui regarde à gauche</div>
     </footer>
   );
 }

@@ -16,8 +16,13 @@ export default function Anchor({
     <Link
       href={href}
       className={`
+        flex
+        items-center
+        gap-1.5
         relative
+        w-fit
         p-0.5
+
         after:content-['']
         after:bg-primary
         after:rounded-[4px]
