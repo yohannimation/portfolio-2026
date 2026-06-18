@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import localFont from 'next/font/local'
+
+import Footer from "@/components/ui/footer";
+
 import "./globals.css";
 
 const moonGet = localFont({
@@ -28,7 +31,13 @@ export default function RootLayout({
       lang="en"
       className={`${moonGet.variable} ${comfortaa.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-full flex flex-col bg-black">
+        <main className="relative bg-background min-h-screen z-1">
+          {children}
+        </main>
+        <div className="h-[var(--footer-height)] w-full" />
+        <Footer />
+      </body>
     </html>
   );
 }
