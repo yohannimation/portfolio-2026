@@ -73,9 +73,8 @@ export default function HeroSection() {
         <FadeContent duration={1} delay={1.5}>
           <div className="flex flex-col lg:items-center justify-end lg:flex-row gap-2 lg:gap-10">
             <p className="p-1 w-fit rounded-sm">
-              Étant passionné de création visuel et d'animations,
-              <br />
-              je suis ouvert à tous type de projets.
+              Développeur Front-End passionné par l'expérience utilisateur.<br />
+              J'imagine et développe des interfaces performantes, tout en explorant la création visuelle et l'animation.
             </p>
             <ElasticButton
               onClick={() => { document.getElementById("category")?.scrollIntoView(); }}

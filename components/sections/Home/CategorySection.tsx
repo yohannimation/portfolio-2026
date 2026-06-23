@@ -1,7 +1,6 @@
 "use client";
 
 // UI components
-import Anchor from "@/components/ui/anchor";
 import FlowingMenu from "@/components/FlowingMenu";
 
 // Animation components
@@ -18,15 +17,15 @@ export default function CategorySection() {
   const categories: category[] = [
     {
       id: 1,
-      name: "Category 1",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, velit.",
-      slug: "cat-1"
+      name: "Développement web",
+      description: "",
+      slug: "1-web"
     },
     {
       id: 2,
-      name: "Category 2",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, velit.",
-      slug: "cat-2"
+      name: "Audiovisuel",
+      description: "",
+      slug: "2-audiovisual"
     },
   ]
 
@@ -60,7 +59,10 @@ export default function CategorySection() {
       >
         <div>
           <h2>CATEGORIES</h2>
-          <p>Lorem ipsum <Anchor href={`/category`} prefetch={true}>dolor</Anchor> sit amet,<br/>consectetur adipisicing elit. Eos odio unde, possimus distinctio nobis quis dolor blanditiis veritatis sed sequi!</p>
+          <p>
+            Du développement web à la création audiovisuelle, chaque projet est l'occasion d'explorer de nouvelles idées et de perfectionner mes compétences.<br />
+            Parcourez mes réalisations et découvrez les univers qui m'inspirent.
+          </p>
         </div>
 
         <div className="relative mx-auto w-full max-w-full h-full overflow-hidden">
