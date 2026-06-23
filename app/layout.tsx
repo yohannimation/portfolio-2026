@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${moonGet.variable} ${comfortaa.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="relative min-h-full flex flex-col bg-black">
+      <body className="relative min-h-dvh flex flex-col bg-black">
         <main className="relative bg-background min-h-screen z-1">
           {children}
         </main>
