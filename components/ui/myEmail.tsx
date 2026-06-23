@@ -47,6 +47,7 @@ export default function MyEmail({ email }: myEmailProps) {
       `}
 			onClick={copyEmailTrigger}
 			aria-label={copied ? "Email copié" : `Copier l'email ${email}`}
+      title="Copier l'email"
     >
       {email} {copied ? <Check size={18} /> : <Copy size={18} />}
     </button>
