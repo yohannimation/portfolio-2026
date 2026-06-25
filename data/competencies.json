@@ -2,7 +2,7 @@
     {
         "id": "frontend",
         "name": "Front-End",
-        "competency": [
+        "competencies": [
             {
                 "name": "JavaScript",
                 "icon": "javascript"
@@ -60,7 +60,7 @@
     {
         "id": "backend",
         "name": "Back-End",
-        "competency": [
+        "competencies": [
             {
                 "name": "PHP",
                 "icon": "php"
@@ -94,7 +94,7 @@
     {
         "id": "design",
         "name": "Design",
-        "competency": [
+        "competencies": [
             {
                 "name": "CSS",
                 "icon": "css"
@@ -128,7 +128,7 @@
     {
         "id": "tools",
         "name": "Tools",
-        "competency": [
+        "competencies": [
             {
                 "name": "Git",
                 "icon": "git"
@@ -150,7 +150,7 @@
     {
         "id": "animation",
         "name": "Animation",
-        "competency": [
+        "competencies": [
             {
                 "name": "Blender",
                 "icon": "blender"
@@ -161,7 +161,7 @@
             },
             {
                 "name": "Illustrator",
-                "icon": null
+                "icon": null            
             },
             {
                 "name": "Photoshop",
@@ -176,7 +176,7 @@
     {
         "id": "compagnie",
         "name": "Entreprise",
-        "competency": [
+        "competencies": [
             {
                 "name": "Relation client",
                 "icon": null
