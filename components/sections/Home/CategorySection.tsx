@@ -6,30 +6,32 @@ import FlowingMenu from "@/components/FlowingMenu";
 // Animation components
 import AnimatedContent from "@/components/AnimatedContent";
 
-interface category {
-  id: number;
-  name: string;
-  description: string;
-  slug: string;
+// Types
+import type { CategoryInterface } from "@/types/category.interface"
+
+interface CategoryItem {
+  link: string;
+  text: string;
+  image: string;
 }
 
 export default function CategorySection() {
-  const categories: category[] = [
+  const categories: CategoryInterface[] = [
     {
       id: 1,
       name: "Développement web",
       description: "",
-      slug: "1-web",
+      slug: "web",
     },
     {
       id: 2,
       name: "Audiovisuel",
       description: "",
-      slug: "2-audiovisual",
+      slug: "audiovisual",
     },
   ];
 
-  const categoryItems = categories.map((category, index) => ({
+  const categoryItems: CategoryItem[] = categories.map((category, index) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
     image: `https://picsum.photos/600/400?random=${index + 1}`,
@@ -62,10 +64,10 @@ export default function CategorySection() {
           <h2>CATEGORIES</h2>
           <p>
             Du développement web à la création audiovisuelle, chaque projet est
-            l'occasion d'explorer de nouvelles idées et de perfectionner mes
+            l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
             compétences.
             <br />
-            Parcourez mes réalisations et découvrez les univers qui m'inspirent.
+            Parcourez mes réalisations et découvrez les univers qui m{"'"}inspirent.
           </p>
         </div>
 
