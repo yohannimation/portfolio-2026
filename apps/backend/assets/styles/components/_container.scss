@@ -1,0 +1,20 @@
+.shadow-container {
+    padding: rem(30) rem(40);
+    background-color: $dark;
+    height: fit-content;
+    border: map-get($border, solidPrimary);
+    border-radius: map-get($borderRadius, l);
+    box-shadow: rem(8) rem(5) 0 $dark;
+}
+
+@media (width <= 991px) {
+    .shadow-container {
+        padding: rem(30) rem(30);
+    }
+}
+
+@media (width <= 767px) {
+    .shadow-container {
+        padding: rem(20);
+    }
+}

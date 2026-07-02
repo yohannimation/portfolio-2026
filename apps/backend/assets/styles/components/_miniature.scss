@@ -1,0 +1,102 @@
+.miniature {
+    position: relative;
+    padding: 0;
+    max-height: rem(455);
+    height: fit-content;
+    overflow: hidden;
+    border-radius: map-get($borderRadius, m);
+    background-color: map-get($color-palette, darkWhite);
+
+    &-img {
+        width: 100%;
+    }
+
+    &-footer {
+        @include flexbox(
+            $j-content: end,
+            $a-item: center,
+            $gap: rem(10)
+        );
+
+        &.is-reversed {
+            justify-content: start;
+        }
+
+        position: absolute;
+        inset: auto 0 0;
+        height: rem(60);
+        padding-inline: rem(10);
+        transition: map-get($transition, time);
+
+        a,
+        button {
+            border-radius: rem(10);
+        }
+    }
+
+    .tags {
+        @include flexbox(
+            $j-content: end,
+            $gap: rem(15)
+        );
+
+        position: absolute;
+        top: rem(-1);
+        right: rem(-1);
+        width: fit-content;
+        padding: rem(8) rem(15);
+        background-color: $dark;
+        border-bottom-left-radius: map-get($borderRadius, m);
+        transform: translateY(-100%);
+        transition: map-get($transition, time);
+
+        &-item {
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: .2s;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: rem(15);
+            height: rem(15);
+            background: radial-gradient(
+                circle at 0 0,
+                transparent 70%,
+                $dark 71%
+            );
+            transform: rotate(-90deg);
+        }
+
+        &::before {
+            right: 0;
+            bottom: rem(-15);
+        }
+
+        &::after {
+            top: 0;
+            left: rem(-15);
+        }
+    }
+
+    &:hover {
+        .miniature-footer {
+            height: rem(80);
+            padding-inline: rem(20);
+        }
+
+        .tags {
+            transform: translateY(0);
+
+            @for $i from 1 through 10 {
+                &-item:nth-child(#{$i}) {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition-delay: #{($i - 1) * .1}s;
+                }
+            }
+        }
+    }
+}

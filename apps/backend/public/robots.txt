@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /2026-CV_Yohann-RENAULD.pdf
+
+Sitemap: https://yohannimation.fr/sitemap.xml

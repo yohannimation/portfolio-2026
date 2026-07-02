@@ -1,0 +1,11 @@
+@function rem($pixels, $base: 16) {
+    @return calc($pixels / $base) + rem;
+}
+
+@function getTextColor($bgColor) {
+    @if (lightness($bgColor) > 65%) {
+        @return map-get($color-palette, dark);
+    } @else {
+        @return map-get($color-palette, light);
+    }
+}

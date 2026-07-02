@@ -1,0 +1,74 @@
+<footer id="footer" class="container-fluid footer" data-controller="mailcopier">
+    <div class="footer-container">
+        <a href="{{ path('app.front.index') }}" class="footer-anchor-icon">
+            <img src="{{ asset('images/app-logo.svg') }}" class="footer-icon" alt="logo">
+        </a>
+        
+        <div class="footer-links">
+            <div>
+                <p class="footer-links-title">Informations diverses :</p>
+                <ul class="footer-links-list">
+                    <li
+                        id="email"
+                        class="link footer-links-list-item"
+                        data-action="mousedown->mailcopier#emailClicked"
+                        data-mailcopier-target="email"
+                        title="Copier l'email"
+                    >
+                        renauldyohann@gmail.com
+                        {{ ux_icon('lucide:copy', {class: 'icon-xs'}) }}
+                    </li>
+                    <li>
+                        <a href="/2026-CV_Yohann-RENAULD.pdf" class="link footer-links-list-item" target="_blank" title="Télécharger mon CV">
+                            Mon CV
+                            {{ ux_icon('lucide:square-arrow-out-up-right', {class: 'icon-xs'}) }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app.front.legal') }}" class="link footer-links-list-item" title="Consulter les mentions légales">
+                            Mentions légales
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-links-title">Mes réseaux-sociaux :</p>
+                <ul class="footer-links-list">
+                    <li>
+                        <a
+                            href="https://github.com/yohannimation/"
+                            class="link footer-links-list-item"
+                            target="_blank"
+                            title="Visiter mon github"
+                        >
+                            GitHub
+                            {{ ux_icon('lucide:square-arrow-out-up-right', {class: 'icon-xs'}) }}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://fr.linkedin.com/in/yohann-renauld?trk=public_profile_browsemap"
+                            class="link footer-links-list-item"
+                            target="_blank"
+                            title="Visiter mon LinkedIn"
+                        >
+                            LinkedIn
+                            {{ ux_icon('lucide:square-arrow-out-up-right', {class: 'icon-xs'}) }}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.instagram.com/yohannimation/"
+                            class="link footer-links-list-item"
+                            target="_blank"
+                            title="Visiter mon Instagram"
+                        >
+                            Instagram
+                            {{ ux_icon('lucide:square-arrow-out-up-right', {class: 'icon-xs'}) }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

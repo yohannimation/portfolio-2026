@@ -1,0 +1,107 @@
+.header {
+    @include flexbox(
+        $j-content: center,
+        $a-item: center,
+        $f-wrap: nowrap,
+    );
+    position: relative;
+    padding: 0 5%;
+    min-height: rem(100);
+    background-color: $dark;
+    z-index: 5;
+    overflow-x: clip;
+
+    &-container {
+        @include flexbox(
+            $j-content: space-between,
+            $a-item: center,
+            $f-wrap: nowrap,
+        );
+        width: 100%;
+        max-width: rem(1625);
+    }
+
+    &-icon {
+        width: clamp(180px, 25vw, 300px);
+    }
+
+    &-nav {
+        &-desktop {
+            @include flexbox(
+                $j-content: flex-end,
+                $a-item: center,
+                $f-wrap: nowrap,
+                $gap: rem(30),
+            );
+        }
+
+        &-mobile {
+            display: none; // mobile menu hidden by default
+
+            .menu-icon {
+                display: block;
+            }
+            .cross-icon {
+                display: none;
+            }
+
+            &-sidebar {
+                @include flexbox(
+                    $a-item: flex-end,
+                    $f-direction: column,
+                    $gap: rem(10),
+                );
+                position: absolute;
+                inset: rem(100) -5% -100dvh 100%;
+                padding: 0 7% 0 5%;
+                background-color: $dark;
+                transition: map-get($transition, time);
+
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    inset: 0 0 -100dvh 100%;
+                    background-color: rgba(0, 0, 0, .5);
+                    z-index: -1;
+                }
+            }
+
+            &.open {
+                .menu-icon {
+                    display: none;
+                }
+                .cross-icon {
+                    display: block;
+                }
+
+                .header-nav-mobile-sidebar {
+                    right: -2%;
+                    left: 40%;
+                    transition: map-get($transition, time);
+
+                    &::before {
+                        left: -100dvh;
+                        backdrop-filter: blur(4px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Change display for mobile
+@media (max-width: 576px) {
+    .header {
+        &-nav {
+            &-desktop {
+                display: none;
+            }
+
+            &-mobile {
+                display: block;
+
+            }
+        }
+    }
+}

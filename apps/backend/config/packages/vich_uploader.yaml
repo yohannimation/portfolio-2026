@@ -1,0 +1,15 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        # Mapping for project miniatures
+        project_miniature:
+            uri_prefix: /miniature/projects
+            upload_destination: "%kernel.project_dir%/public/miniature/projects"
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+    metadata:
+        type: attribute

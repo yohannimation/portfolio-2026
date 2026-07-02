@@ -1,0 +1,29 @@
+.passions {
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(250), auto));
+        gap: rem(30);
+
+        &-item {
+            @include flexbox(
+                $j-content: center,
+                $a-item: center,
+                $f-direction: column,
+                $f-wrap: nowrap,
+                $gap: rem(15)
+            );
+
+            &-img {
+                width: rem(125);
+                border: map-get($border, solidPrimary);
+                border-radius: map-get($borderRadius, xl);
+                aspect-ratio: 1/1;
+            }
+
+            &-name {
+                margin: 0;
+            }
+        }
+    }
+}

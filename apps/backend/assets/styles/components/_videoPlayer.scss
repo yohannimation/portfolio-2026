@@ -1,0 +1,42 @@
+.video-player {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    z-index: 6;
+
+    iframe {
+        width: 50%;
+        aspect-ratio: 16/9;
+        background-color: map-get($color-palette, lightDark);
+        border: map-get($border, solidPrimary);
+        border-radius: map-get($borderRadius, l);
+        transition: map-get($transition, time);
+        transition-timing-function: map-get($transition, timingFunction);
+    }
+
+    &.active {
+        display: flex;
+        padding: 0 10%;
+        background-color: map-get($color-palette, darkTransparent);
+
+        iframe {
+            width: 100%;
+            max-width: rem(1325);
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .video-player.active {
+        padding: 0 8%;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-player.active {
+        padding: 0 3%;
+    }
+}

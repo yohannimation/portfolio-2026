@@ -1,0 +1,31 @@
+<header class="container-fluid header">
+	<div class="header-container">
+		<a href="{{ path('app.front.index') }}">
+			<img src="{{ asset('images/app-logo.svg') }}" class="header-icon" alt="logo">
+		</a>
+		
+		{% set currentRoute = app.request.attributes.get('_route') %}
+		{% if currentRoute and path(currentRoute, app.request.attributes.get('_route_params')) != '/' %}
+			<div class="header-nav">
+				<nav class="header-nav-desktop">
+					<a href="{{ path('app.front.about-me') }}" class="link" title="Catégorie à propos de moi">Et moi ?</a>
+					<a href="{{ path('app.front.index') }}" class="shadow-btn" title="Voir les catégories">Catégories</a>
+				</nav>
+				<div class="header-nav-mobile" data-controller="navburger" data-navburger-target="mobileNav">
+					<button
+						class="shadow-btn icon-btn"
+						data-action="click->navburger#toggleNavbar"
+					>
+						{{ ux_icon('lucide:menu', {class: 'icon-xl menu-icon'}) }}
+						{{ ux_icon('lucide:x', {class: 'icon-xl cross-icon'}) }}
+					</button>
+
+					<nav class="header-nav-mobile-sidebar">
+						<a href="{{ path('app.front.index') }}" class="button w-100" title="Voir les catégories">Catégories</a>
+						<a href="{{ path('app.front.about-me') }}" class="button w-100" title="Catégorie à propos de moi">Et moi ?</a>
+					</nav>
+				</div>		
+			</div>
+		{% endif %}
+	</div>
+</header>

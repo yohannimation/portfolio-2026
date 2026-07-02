@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+  <url>
+    <loc>https://yohannimation.fr/</loc>
+    <lastmod>2025-09-12T11:59:01+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://yohannimation.fr/category/1-web</loc>
+    <lastmod>2025-09-12T11:59:01+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://yohannimation.fr/category/2-audiovisual</loc>
+    <lastmod>2025-09-12T11:59:01+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://yohannimation.fr/about-me</loc>
+    <lastmod>2025-09-12T11:59:01+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>
