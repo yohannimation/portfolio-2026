@@ -33,45 +33,48 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer
-      ref={footerRef}
-      className="
-        flex
-        justify-between
-        md:items-end
-        flex-col md:flex-row
-        gap-15 md:gap-0
-        fixed
-        bottom-0 left-0 right-0
-        bg-black
-        text-white
-        px-4 py-5
-        sm:px-20 sm:py-8
-      "
-    >
-      <div className="flex flex-col md:flex-row gap-5 md:gap-10">
-        {footerData.sections.map((section) => (
-          <div key={section.title}>
-            <p className="mb-1 underline">{section.title}</p>
-            <ul className="flex flex-col gap-1 ml-5">
-              {(section.items as FooterItem[]).map((item) =>
-                item.type === "email" ? (
-                  <li key={item.email}>
-                    <MyEmail email={item.email!} />
-                  </li>
-                ) : (
-                  <li key={item.label}>
-                    <Anchor href={item.href!} target={item.target} title={item.title}>
-                      {item.label} {item.target === "_blank" && <SquareArrowOutUpRight size={18} />}
-                    </Anchor>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <div>Mascotte qui regarde à gauche</div>
-    </footer>
+    <>
+      <div className="h-[var(--footer-height)] w-full" />
+      <footer
+        ref={footerRef}
+        className="
+          flex
+          justify-between
+          md:items-end
+          flex-col md:flex-row
+          gap-15 md:gap-0
+          fixed
+          bottom-0 left-0 right-0
+          bg-black
+          text-white
+          px-4 py-5
+          sm:px-20 sm:py-8
+        "
+      >
+        <div className="flex flex-col md:flex-row gap-5 md:gap-10">
+          {footerData.sections.map((section) => (
+            <div key={section.title}>
+              <p className="mb-1 underline">{section.title}</p>
+              <ul className="flex flex-col gap-1 ml-5">
+                {(section.items as FooterItem[]).map((item) =>
+                  item.type === "email" ? (
+                    <li key={item.email}>
+                      <MyEmail email={item.email!} />
+                    </li>
+                  ) : (
+                    <li key={item.label}>
+                      <Anchor href={item.href ?? ""} target={item.target} title={item.title}>
+                        {item.label} {item.target === "_blank" && <SquareArrowOutUpRight size={18} />}
+                      </Anchor>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div>Mascotte qui regarde à gauche</div>
+      </footer>
+    </>
   );
 }

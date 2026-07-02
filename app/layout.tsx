@@ -35,7 +35,6 @@ export default function RootLayout({
         <main className="relative bg-background min-h-screen z-1">
           {children}
         </main>
-        <div className="h-[var(--footer-height)] w-full" />
         <Footer />
       </body>
     </html>
