@@ -21,8 +21,6 @@ import { useLayoutEffect, useRef } from 'react';
 // Icons
 import { ArrowDown, Briefcase } from "lucide-react";
 
-
-
 export default function HeroSection() {
   const date = new Date();
   const scrollVelocityRef = useRef(null);

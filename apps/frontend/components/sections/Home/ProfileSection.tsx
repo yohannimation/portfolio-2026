@@ -9,16 +9,16 @@ export default function ProfileSection() {
     <section id="profile" className="bg-primary pt-2 overflow-hidden">
       <div
         className="
-      relative
-      grid
-      grid-cols-2 xl:grid-cols-3
-      grid-rows-none
-      px-4 py-6
-      sm:p-20
-      gap-8
-      rounded-t-2xl sm:rounded-t-4xl
-      bg-background
-    "
+          relative
+          grid
+          grid-cols-2 xl:grid-cols-3
+          grid-rows-none
+          gap-8
+          px-4 py-6
+          sm:p-20
+          rounded-t-2xl sm:rounded-t-4xl
+          bg-background
+        "
       >
         <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-between items-center lg:items-end">
           <div>

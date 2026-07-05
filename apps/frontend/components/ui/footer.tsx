@@ -44,11 +44,13 @@ export default function Footer() {
           flex-col md:flex-row
           gap-15 md:gap-0
           fixed
-          bottom-0 left-0 right-0
+          bottom-0
           bg-black
           text-white
           px-4 py-5
           sm:px-20 sm:py-8
+          w-full
+          max-w-[1920px]
         "
       >
         <div className="flex flex-col md:flex-row gap-5 md:gap-10">
