@@ -1,0 +1,12 @@
+nelmio_cors:
+    defaults:
+        cors_allow_json_request_body: true
+        cors_allow_request_headers: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With']
+        cors_max_age: 3600
+    paths:
+        '^/api':
+            allow_origin: ['*']
+            allow_methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+            allow_headers: ['*']
+            expose_headers: ['Content-Length']
+            max_age: 3600
