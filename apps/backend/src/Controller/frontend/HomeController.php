@@ -3,17 +3,19 @@
 namespace App\Controller\frontend;
 
 use App\Repository\CategoryRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class HomeController extends AbstractController
+final class HomeController extends AbstractApiController
 {
-    #[Route('/', name: 'app.front.index')]
+    #[Route('/api', name: 'app.front.index')]
     public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('frontend/home/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
-        ]);
+        return $this->apiResponse(
+            "API OK",
+            Response::HTTP_OK,
+            ['api:read']
+        );
     }
 }

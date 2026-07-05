@@ -3,19 +3,26 @@
 namespace App\Controller\frontend;
 
 use App\Repository\CategoryRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-#[Route('/category', name: 'app.front.category')]
-final class CategoryController extends AbstractController
+#[Route('/api/category', name: 'app.api.category')]
+final class CategoryController extends AbstractApiController
 {
     #[Route('', name: '.index', methods: ['GET'])]
-    public function index(): RedirectResponse
+    public function index(
+        CategoryRepository $categoryRepository,
+        UrlGeneratorInterface $urlGenerator
+    ): Response
     {
-        return $this->redirectToRoute('app.front.index');
+        $categories = $categoryRepository->findAll();
+        if (!sizeof($categories))
+            throw $this->createNotFoundException('No categories.');
+
+        return $this->apiResponse($categories, Response::HTTP_OK, ['api:read']);
     }
 
     #[Route('/{id}', name: '.show.without-slug', methods: ['GET'], requirements: ['id' => '\d+'])]
@@ -37,9 +44,6 @@ final class CategoryController extends AbstractController
             return new RedirectResponse($correctUrl, 301);
         }
 
-        return $this->render('frontend/category/index.html.twig', [
-            'category' => $category,
-            'projects' => $category->getProjects()
-        ]);
+        return $this->apiResponse($category, Response::HTTP_OK, ['api:detail']);
     }
 }

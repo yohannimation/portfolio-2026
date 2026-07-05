@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
@@ -18,44 +19,56 @@ class Project
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api:read', 'api:detail'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api:read', 'api:detail'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['api:detail'])]
     private ?string $description = null;
-    
+
     #[ORM\Column(length: 1024)]
+    #[Groups(['api:read', 'api:detail'])]
     private ?string $source = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['api:read', 'api:detail'])]
     private ?string $sourceType = null;
 
     #[Vich\UploadableField(mapping: 'project_miniature', fileNameProperty: 'miniatureName', size: 'miniatureSize')]
     private ?File $miniatureFile = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api:read', 'api:detail'])]
     private ?string $miniatureName = null;
 
     #[ORM\Column]
+    #[Groups(['api:read', 'api:detail'])]
     private ?int $miniatureSize = null;
-    
+
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['api:read', 'api:detail'])]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
+    #[Groups(['api:detail'])]
     private ?bool $active = null;
 
     #[ORM\ManyToOne(inversedBy: 'projects')]
+    #[Groups(['api:detail'])]
     private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'projects')]
+    #[Groups(['api:detail'])]
     private ?Type $type = null;
 
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'projects')]
+    #[Groups(['api:detail'])]
     private Collection $tags;
-    
+
     public function getId(): ?int
     {
         return $this->id;

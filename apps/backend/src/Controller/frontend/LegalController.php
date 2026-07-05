@@ -2,17 +2,18 @@
 
 namespace App\Controller\frontend;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class LegalController extends AbstractController
+final class LegalController extends AbstractApiController
 {
-    #[Route('/legal-notices', name: 'app.front.legal')]
+    #[Route('/api/legal-notices', name: 'app.front.legal')]
     public function index(): Response
     {
-        return $this->render('frontend/legal/index.html.twig', [
+        return $this->apiResponse([
             'controller_name' => 'LegalController',
+            'message' => 'Legal notices content'
         ]);
     }
 }
