@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin categories{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Categories dashboard</h1>
+        <a href="{{ path('app.admin.category.create') }}" class="button">Create</a>
+        <table class="table table-dark my-3">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Icon</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td scope="row">{{ category.id }}</td>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.description }}</td>
+                        <td>{{ category.icon }}</td>
+                        <td>{{ category.active ? "<span class='badge text-bg-success'>Active</span>" : "<span class='badge text-bg-danger'>Disabled</span>" }}</td>
+                        <td>{{ category.slug }}</td>
+                        <td>
+                            <form
+                                action="{{ path('app.admin.category.delete', { id: category.id }) }}"
+                                onSubmit="return confirm('Delete {{category.name}} category ?')"
+                                method="POST"
+                            >
+                                <a href="{{ path('app.admin.category.update', { id: category.id }) }}" class="btn btn-warning">Edit</a>
+                                <input type="hidden" name="token" value="{{ csrf_token('delete' ~ category.id) }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

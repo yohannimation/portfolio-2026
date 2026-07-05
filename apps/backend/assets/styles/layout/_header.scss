@@ -1,0 +1,27 @@
+.header {
+    @include flexbox(
+        $j-content: center,
+        $a-item: center,
+        $f-wrap: nowrap,
+    );
+    position: relative;
+    padding: 0 5%;
+    min-height: rem(100);
+    background-color: $dark;
+    z-index: 5;
+    overflow-x: clip;
+
+    &-container {
+        @include flexbox(
+            $j-content: space-between,
+            $a-item: center,
+            $f-wrap: nowrap,
+        );
+        width: 100%;
+        max-width: rem(1625);
+    }
+
+    &-icon {
+        width: clamp(180px, 25vw, 300px);
+    }
+}

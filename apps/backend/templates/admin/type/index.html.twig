@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin types{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Types dashboard</h1>
+        <a href="{{ path('app.admin.type.create') }}" class="button">Create</a>
+        <table class="table table-dark my-3">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for type in types %}
+                    <tr>
+                        <td scope="col">{{ type.id }}</td>
+                        <td>{{ type.name }}</td>
+                        <td>{{ type.value }}</td>
+                        <td>{{ type.active ? "<span class='badge text-bg-success'>Active</span>" : "<span class='badge text-bg-danger'>Disabled</span>" }}</td>
+                        <td>
+                            <form
+                                action="{{ path('app.admin.type.delete', { id: type.id }) }}"
+                                onSubmit="return confirm('Delete {{type.name}} type ?')"
+                                method="POST"
+                            >
+                                <a href="{{ path('app.admin.type.update', { id: type.id }) }}" class="btn btn-warning">Edit</a>
+                                <input type="hidden" name="token" value="{{ csrf_token('delete' ~ type.id) }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

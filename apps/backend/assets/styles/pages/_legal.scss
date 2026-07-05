@@ -1,0 +1,10 @@
+.legal {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    ul {
+        margin-left: rem(16);
+        list-style: disc;
+    }
+}

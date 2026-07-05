@@ -1,0 +1,30 @@
+.link {
+    position: relative;
+    padding: 0 rem(2);
+    color: $light;
+    z-index: 1;
+    cursor: pointer;
+    transition: map-get($transition, time);
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: calc(100% - rem(2)) 0 0 0;
+        width: 100%;
+        background-color: $primary;
+        border-radius: map-get($borderRadius, xs);
+        z-index: -1;
+        transition: map-get($transition, time);
+    }
+
+    &:hover {
+        color: $dark;
+
+        &::before {
+            inset: rem(-2) 0 0 0;
+            background-color: $secondary;
+            transition: map-get($transition, time) map-get($transition, timingFunction);
+        }
+    }
+}

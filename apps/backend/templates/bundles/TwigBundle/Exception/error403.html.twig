@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - 403 error{% endblock %}
+
+{% block body %}
+    <div class="page-title">
+        <h1>Erreur 403</h1>
+    </div>
+
+    <section class="cta">
+        <div class="cta-split">
+            {% include "layout/_errorContent.html.twig" %}
+            <img src="{{ asset('images/mascotte/BoredMascotte.svg') }}" class="cta-img" alt="Error mascotte">
+        </div>
+    </section>
+{% endblock %}

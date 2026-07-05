@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calendar_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dcdcdc;
+      }
+    </style>
+  </defs>
+  <g id="Body">
+    <path id="Body_triangle" class="cls-1" d="M5.56,77.26c0,31.88.76,61.85,15.56,70.01,14.8,8.16,53.51-13.28,69.44-21.25,15.94-7.97,53.89-30.17,53.89-47.25s-27.7-37.38-51.99-53.32C68.17,9.52,30.79-5.85,21.49,4.02,12.2,13.88,5.56,46.33,5.56,77.26Z"/>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+html,
+body {
+    scroll-behavior: smooth;
+    background-color: map-get($color-palette, darkWhite);
+}
+
+html {
+    position: relative;
+    min-height: 100vh;
+    overflow: scroll;
+
+}
+
+.turbo-progress-bar {
+    background-color: $primary;
+    height: rem(4);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: map-get($transition, time);
+}

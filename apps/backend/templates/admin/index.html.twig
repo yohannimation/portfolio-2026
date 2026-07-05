@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Back-office</h1>
+
+    <nav>
+        <a href="{{ path('app.admin.project.index') }}" class="button" title="Projects">Projects</a>
+        <a href="{{ path('app.admin.category.index') }}" class="button" title="Categories">Categories</a>
+        <a href="{{ path('app.admin.type.index') }}" class="button" title="Type">Type</a>
+    </nav>
+</div>
+{% endblock %}

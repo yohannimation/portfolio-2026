@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin categories{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Categories update form</h1>
+
+        {% include "admin/category/_form.html.twig" %}
+    </section>
+{% endblock %}

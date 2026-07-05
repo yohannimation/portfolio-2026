@@ -1,0 +1,66 @@
+.button {
+    padding: rem(10) rem(15);
+    background-color: $primary;
+    color: $light;
+    border: none;
+    border-radius: map-get($borderRadius , m);
+    text-wrap: nowrap;
+    transition: map-get($transition, time);
+
+    &:hover, &:active {
+        background-color: $secondary;
+        color: $dark;
+        transition: map-get($transition, time);
+    }
+
+    &-transparent {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            background-color: map-get($color-palette, lightDark);
+        }
+    }
+
+    &-xs {
+        @include flexbox(
+            $j-content: center,
+            $a-item: center,
+            $f-direction: row,
+            $gap: rem(10),
+            $f-wrap: nowrap
+        );
+        padding: rem(8);
+        height: rem(40);
+    }
+}
+
+.shadow-btn {
+    padding: rem(8) rem(15);
+    background-color: $primary;
+    color: $light;
+    border: none;
+    border-radius: map-get($borderRadius , xl);
+    transform: translate(rem(-8), rem(-5));
+    box-shadow: rem(8) rem(5) 0 $light;
+    text-wrap: nowrap;
+    transition: map-get($transition, time) map-get($transition, timingFunction);
+
+    &:hover, &:active {
+        background-color: $secondary;
+        color: $dark;
+        transform: translate(0, 0);
+        box-shadow: 0 0 0 $light;
+        transition: map-get($transition, time);
+    }
+}
+
+.icon-btn {
+    @include flexbox(
+        $j-content: center,
+        $a-item: center,
+    );
+    padding: rem(8);
+    width: rem(40);
+    height: rem(40);
+}

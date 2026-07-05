@@ -1,0 +1,15 @@
+@import '../layout/aboutme_who-am-i';
+@import '../layout/aboutme_career';
+@import '../layout/aboutme_skills';
+@import '../layout/aboutme_passions';
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+
+    .cta {
+        margin: 0 auto;
+        width: fit-content;
+    }
+}

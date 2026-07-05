@@ -1,0 +1,79 @@
+.skills {
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(250), auto));
+        gap: rem(30);
+
+        &-item {
+            padding: rem(15);
+            max-height: rem(65);
+            background-color: map-get($color-palette, darkWhite);
+            border: map-get($border, solidPrimary);
+            border-radius: map-get($borderRadius, m);
+            overflow: hidden;
+            cursor: pointer;
+            transition:
+                max-height .3s,
+                background-color map-get($transition, time),
+                border-radius map-get($transition, time)
+            ;
+
+            &-head {
+                @include flexbox(
+                    $j-content: space-between,
+                    $a-item: center,
+                    $f-wrap: nowrap
+                );
+                font-size: clamp(rem(18), 1.8vw, rem(20));
+
+                & .skill-info {
+                    @include flexbox(
+                        $j-content: start,
+                        $a-item: center,
+                        $f-wrap: nowrap,
+                        $gap: rem(15)
+                    );
+                }
+
+                &-icon {
+                    width: rem(24);
+                    height: rem(24);
+                    border-radius: map-get($borderRadius, xl);
+                    aspect-ratio: 1/1;
+                }
+
+                &-state {
+                    width: rem(24);
+                    height: rem(24);
+                    aspect-ratio: 1/1;
+                    transform: rotate(0);
+                    transition: map-get($transition, time);
+                }
+            }
+
+            &.open {
+                max-height: rem(600);
+
+                .skills-list-item-head-state {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:hover {
+                background-color: map-get($color-palette, lightDark);
+                border: map-get($border, solidSecondary);
+                transition: .3s;
+            }
+        }
+    }
+}
+
+.sub-skills-list {
+    margin-top: rem(15);
+    margin-left: calc(rem(24) + rem(15));
+
+    &-item {
+        margin: rem(5) 0;
+    }
+}

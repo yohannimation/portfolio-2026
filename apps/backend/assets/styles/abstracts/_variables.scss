@@ -1,0 +1,55 @@
+// Color palette
+$color-palette: (
+    primary: #388423,
+    secondary: #48C634,
+    light: #DCDCDC,
+    lightDark: #575A65,
+    darkWhite: #363A47,
+    dark: #1B1D24,
+    darkTransparent: rgba(0, 0, 0, .7),
+);
+$primary: map-get($color-palette, primary);
+$secondary: map-get($color-palette, secondary);
+$light: map-get($color-palette, light);
+$dark: map-get($color-palette, dark);
+
+// Border radius
+$borderRadius: (
+    xs: 3px,
+    s: 10px,
+    m: 15px, // 25px (border default) - 10px (padding)
+    l: 25px,
+    xl: 9999px,
+);
+
+$borderWidth: 3px;
+// Border
+$border: (
+    solidPrimary: $borderWidth solid $primary,
+    solidSecondary: $borderWidth solid $secondary,
+);
+
+// Box shadow
+$boxShadow: 8px 8px 0 $dark;
+
+// Font family
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../../fonts/Comfortaa-Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LilitaOne';
+    src: url('../../fonts/LilitaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$fontText: "Comfortaa", "Sans-serif";
+$fontHead: "LilitaOne", "Sans-serif";
+
+// Transition
+$transition: (
+    time: .2s,
+    timingFunction: cubic-bezier(.01 ,0 ,.19 ,2.36),
+);
