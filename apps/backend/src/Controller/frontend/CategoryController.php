@@ -15,7 +15,6 @@ final class CategoryController extends AbstractApiController
     #[Route('', name: '.index', methods: ['GET'])]
     public function index(
         CategoryRepository $categoryRepository,
-        UrlGeneratorInterface $urlGenerator
     ): Response
     {
         $categories = $categoryRepository->findAll();
@@ -40,7 +39,7 @@ final class CategoryController extends AbstractApiController
 
         $categorySlug = $category->getSlug();
         if ($categorySlug !== $slug) {
-            $correctUrl = $urlGenerator->generate('app.front.category.show', ['id' => $id, 'slug' => $categorySlug]);
+            $correctUrl = $urlGenerator->generate('app.api.category.show', ['id' => $id, 'slug' => $categorySlug]);
             return new RedirectResponse($correctUrl, 301);
         }
 
