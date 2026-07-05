@@ -5,9 +5,12 @@
     "apps/*"
   ],
   "scripts": {
-    "dev:frontend": "npm run dev -w portfolio",
-    "build:frontend": "npm run build -w portfolio",
-    "start:frontend": "npm run start -w portfolio",
-    "lint:frontend": "npm run lint -w portfolio"
+    "dev:frontend": "npm run dev -w portfolio-frontend",
+    "build:frontend": "npm run build -w portfolio-frontend",
+    "start:frontend": "npm run start -w portfolio-frontend",
+    "lint:frontend": "npm run lint -w portfolio-frontend",
+    "dev:backend": "npm run dev -w portfolio-backend",
+    "watch:backend": "npm run watch -w portfolio-backend",
+    "build:backend": "npm run build -w portfolio-backend"
   }
 }
