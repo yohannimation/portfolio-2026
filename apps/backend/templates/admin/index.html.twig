@@ -3,18 +3,13 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div>
+    <h1>Back-office</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>D:/portfolio/code/src/Controller/back/AdminController.php</code></li>
-        <li>Your template at <code>D:/portfolio/code/templates/back/admin/index.html.twig</code></li>
-    </ul>
+    <nav>
+        <a href="{{ path('app.admin.project.index') }}" class="button" title="Projects">Projects</a>
+        <a href="{{ path('app.admin.category.index') }}" class="button" title="Categories">Categories</a>
+        <a href="{{ path('app.admin.type.index') }}" class="button" title="Type">Type</a>
+    </nav>
 </div>
 {% endblock %}
