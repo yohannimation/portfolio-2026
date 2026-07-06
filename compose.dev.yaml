@@ -1,0 +1,75 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: portfolio-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - portfolio-network
+
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-backend
+    volumes:
+      - ./apps/backend:/var/www/html
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      APP_SECRET: ${APP_SECRET}
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}?serverVersion=8.0&charset=utf8mb4
+      MESSENGER_TRANSPORT_DSN: ${MESSENGER_TRANSPORT_DSN}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - portfolio-network
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-frontend
+    volumes:
+      - ./apps/frontend:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
+      NODE_ENV: ${NODE_ENV:-development}
+    networks:
+      - portfolio-network
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: portfolio-nginx
+    ports:
+      - "${NGINX_PORT:-80}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./apps/backend:/var/www/html:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
