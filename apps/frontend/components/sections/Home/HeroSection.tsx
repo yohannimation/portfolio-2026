@@ -28,8 +28,9 @@ gsap.registerPlugin(ScrollTrigger);
 import { ArrowDown, Briefcase } from "lucide-react";
 
 export default function HeroSection() {
-  const date = new Date();
   const scrollVelocityRef = useRef(null);
+  const blurRef = useRef(null);
+  const date = new Date();
 
   useLayoutEffect(() => {
     gsap.fromTo(scrollVelocityRef.current,
@@ -48,6 +49,21 @@ export default function HeroSection() {
     gsap.to(scrollVelocityRef.current, {
       rotation: () => -(Math.asin(35 / window.innerWidth) * (180 / Math.PI)),
       transformOrigin: "right center",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: 0,
+        end: 400,
+        scrub: true,
+      }
+    });
+
+    gsap.to(blurRef.current, {
+      "--blur-amount": "24px",
+      "--mask-radius-x": "150%",
+      "--mask-radius-y": "100%",
+      "--mask-radius": "100%",
+      "--mask-radius-edge": "175%",
       ease: "none",
       scrollTrigger: {
         trigger: "#hero",
@@ -109,6 +125,21 @@ export default function HeroSection() {
           </div>
         </FadeContent>
       </div>
+
+      <span
+        ref={blurRef}
+        className="absolute inset-0 z-2 pointer-events-none backdrop-blur-xl"
+        style={{
+          "--blur-amount": "0px",
+          "--mask-radius-x": "0%",
+          "--mask-radius-y": "0%",
+          "--mask-radius": "0%",
+          "--mask-radius-edge": "0%",
+          backdropFilter: "blur(var(--blur-amount))",
+          maskImage: "radial-gradient(ellipse var(--mask-radius-x) var(--mask-radius-y) at 50% 100%, black var(--mask-radius), transparent var(--mask-radius-edge))",
+          WebkitMaskImage: "radial-gradient(ellipse var(--mask-radius-x) var(--mask-radius-y) at 50% 100%, black var(--mask-radius), transparent var(--mask-radius-edge))",
+        }}
+      />
 
       <div ref={scrollVelocityRef} className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary overflow-hidden'>
         <ScrollVelocity
