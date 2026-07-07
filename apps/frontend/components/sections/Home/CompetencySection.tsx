@@ -1,5 +1,12 @@
 "use client";
 
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 // UI components
 import {
   Accordion,
@@ -32,6 +39,40 @@ interface competenciesInterface {
 }
 
 export default function CompetencySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const targetRadius = window.innerWidth < 640 ? "0.75rem" : "2.5rem";
+    const paddingSection = window.innerWidth < 640 ? "16px 8px" : "16px 12px";
+
+    gsap.set(sectionRef.current, { padding: 0 });
+    gsap.set(innerRef.current, { borderRadius: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=150%",
+        pin: true,
+        scrub: true,
+        onLeave: () => {
+          gsap.set(sectionRef.current, { padding: paddingSection });
+          gsap.set(innerRef.current, { borderRadius: targetRadius });
+        },
+      },
+    });
+
+    tl.to(sectionRef.current, {
+      padding: paddingSection,
+      duration: 1
+    }, 0)
+    .to(innerRef.current, {
+      borderRadius: targetRadius,
+      duration: 1
+    }, 0);
+  }, { scope: sectionRef });
+
   const accordionItemsMobile: accordionItem[] = competencies.map(
     (item: competencyCategoryInterface) => ({
       value: item.id,
@@ -117,9 +158,13 @@ export default function CompetencySection() {
   return (
     <section
       id="competencies"
-      className="relative p-2 py-4 sm:p-3 sm:py-4 min-h-screen bg-primary flex flex-col"
+      ref={sectionRef}
+      className="relative p-2 py-4 sm:p-3 sm:py-4 min-h-[100dvh] bg-primary flex flex-col items-center justify-center overflow-hidden"
     >
-      <div className="flex-1 p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl">
+      <div
+        ref={innerRef}
+        className="w-full h-full p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl"
+      >
         <AnimatedContent
           container="competencies"
           delay={0.2}
@@ -131,7 +176,6 @@ export default function CompetencySection() {
           "
         >
           <h2>COMPETENCES</h2>
-
           <div className="relative">
             <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
               {accordionItemsMobile.map((accordion) => (
