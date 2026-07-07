@@ -46,22 +46,6 @@ export default function HeroSection() {
       }
     );
 
-    gsap.to(scrollVelocityRef.current, {
-      rotation: () => {
-        const angle = Math.asin(35 / window.innerWidth) * (180 / Math.PI);
-        const multiplier = window.innerWidth < 768 ? 0.4 : 1; // Mobile have less angle
-        return -angle * multiplier;
-      },
-      transformOrigin: "right center",
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: 0,
-        end: 400,
-        scrub: true,
-      }
-    });
-
     gsap.to(blurRef.current, {
       "--blur-amount": "24px",
       "--mask-radius-x": "150%",
@@ -104,8 +88,8 @@ export default function HeroSection() {
           tag="h1"
           text="DEVELOPPEUR FRONTEND"
           delay={50}
-          duration={0.5}
-          ease="power3.out"
+          duration={1.2}
+          ease="elastic.out(1,0.3)"
           splitType="chars"
           from={{ opacity: 0, y: 40 }}
           to={{ opacity: 1, y: 0 }}
