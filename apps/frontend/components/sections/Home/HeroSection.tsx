@@ -47,7 +47,11 @@ export default function HeroSection() {
     );
 
     gsap.to(scrollVelocityRef.current, {
-      rotation: () => -(Math.asin(35 / window.innerWidth) * (180 / Math.PI)),
+      rotation: () => {
+        const angle = Math.asin(35 / window.innerWidth) * (180 / Math.PI);
+        const multiplier = window.innerWidth < 768 ? 0.4 : 1; // Mobile have less angle
+        return -angle * multiplier;
+      },
       transformOrigin: "right center",
       ease: "none",
       scrollTrigger: {
