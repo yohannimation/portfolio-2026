@@ -27,20 +27,25 @@ export default function CategorySection() {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=95%",
+      pin: true,
+    });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=175%",
-        pin: true,
+        end: "+=150%",
         scrub: true,
       },
     });
 
-    // On ajoute un "vide" au début pour laisser le contenu visible plus longtemps
-    tl.to({}, { duration: 1 })
-      .to(contentWrapperRef.current, { opacity: 0, y: -50, duration: 1 }, ">")
-      .to(sectionRef.current, { backgroundColor: "var(--background)", duration: 1 }, "<");
+    tl.to(contentWrapperRef.current, { y: -75, duration: 1 })
+      .to(contentWrapperRef.current, { opacity: 0, y: -150, duration: 1 }, ">")
+      .to(sectionRef.current, { backgroundColor: "var(--background)", duration: 0.4 }, "<");
   }, { scope: sectionRef });
 
   const categories: CategoryInterface[] = [
@@ -82,9 +87,9 @@ export default function CategorySection() {
       "
     >
       <div ref={contentWrapperRef} className="w-full">
-        <AnimatedContent
-          container="category"
-          delay={0.2}
+        <div
+          // container="category"
+          // delay={0.2}
           className="
             flex
             flex-col
@@ -114,7 +119,7 @@ export default function CategorySection() {
               borderColor="var(--primary)"
             />
           </div>
-        </AnimatedContent>
+        </div>
       </div>
     </section>
   );
