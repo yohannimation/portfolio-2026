@@ -16,7 +16,7 @@ export default function ProfileSection() {
           gap-8
           px-4 py-6
           sm:p-20
-          rounded-t-2xl sm:rounded-t-4xl
+          rounded-t-sm sm:rounded-t-4xl
           bg-background
         "
       >
