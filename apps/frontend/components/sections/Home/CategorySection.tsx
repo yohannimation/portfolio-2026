@@ -29,7 +29,7 @@ export default function CategorySection() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=150%",
+        end: "+80%",
         scrub: true,
         pin: true,
         pinSpacing: false,
@@ -38,7 +38,7 @@ export default function CategorySection() {
 
     tl.to(contentWrapperRef.current, { y: -50, duration: 1 })
       .to(contentWrapperRef.current, { opacity: 0, y: -1000, duration: 1 }, ">")
-      .to(sectionRef.current, { backgroundColor: "var(--background)", duration: 0.4 }, "<");
+      .to(sectionRef.current, { duration: 0.4 }, "<");
   }, { scope: sectionRef });
 
   const categories: CategoryInterface[] = [

@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <HeroSection />
       <CategorySection />
-      <CompetencySection />
       <ProfileSection />
+      <CompetencySection />
     </>
   );
 }

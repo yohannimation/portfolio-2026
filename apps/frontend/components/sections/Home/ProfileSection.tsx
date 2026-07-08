@@ -23,7 +23,7 @@ export default function ProfileSection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 85%",
+        start: "top 80%",
         end: "+=350",
         scrub: 1,
       },
@@ -37,8 +37,7 @@ export default function ProfileSection() {
       left: "50%",
       xPercent: -50,
     });
-    gsap.set(titleRef.current, { opacity: 0, y: 500, x: 0 });
-    gsap.set([cardRef.current, textRef.current, buttonRef.current], { opacity: 0 });
+    gsap.set([cardRef.current, titleRef.current, textRef.current, buttonRef.current], { opacity: 1 });
 
     tl.to(bgRef.current, {
       width: "40vw",
@@ -64,7 +63,7 @@ export default function ProfileSection() {
       {/* Animated Background Layer */}
       <div
         ref={bgRef}
-        className="absolute bg-background z-0"
+        className="absolute bg-background z-4"
         style={{ position: 'absolute' }}
       />
 
@@ -72,31 +71,30 @@ export default function ProfileSection() {
       <div
         className="
           relative
-          z-10
           grid
           grid-cols-2 xl:grid-cols-3
           grid-rows-none
           gap-8
           px-4 py-6
           sm:p-20
+          h-dvh
           rounded-t-sm sm:rounded-t-4xl
+          z-5
         "
       >
-        <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-between items-center lg:items-end">
-          <div ref={titleRef}>
-            <h1 className="text-4xl font-bold mb-4">Yohann RENAULD</h1>
-            <div ref={textRef}>
-              <p className="text-lg leading-relaxed">
-                Développeur web passionné par les interfaces modernes et la
-                création visuelle, je construis mon expérience depuis plusieurs
-                années à travers l'alternance et des projets personnels. Dans la
-                continuité de mon parcours professionnel et suite à ma formation
-                dans l'Ingénierie du Web, je suis en{" "}
-                <span className="underline decoration-primary">recherche</span> d'un{" "}
-                <span className="underline decoration-primary">contrat à durée indéterminé</span>{" "}
-                afin d'accroitre mes connaissances et mon expérience.
-              </p>
-            </div>
+        <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-center items-center lg:items-end z-5">
+          <div>
+            <h1 ref={titleRef}>Yohann RENAULD</h1>
+            <p ref={textRef}>
+              Développeur web passionné par les interfaces modernes et la
+              création visuelle, je construis mon expérience depuis plusieurs
+              années à travers l'alternance et des projets personnels. Dans la
+              continuité de mon parcours professionnel et suite à ma formation
+              dans l'Ingénierie du Web, je suis en{" "}
+              <span className="underline">recherche</span> d'un{" "}
+              <span className="underline">contrat à durée indéterminé</span>{" "}
+              afin d'accroitre mes connaissances et mon expérience.
+            </p>
           </div>
 
           <div className="mt-4 w-fit" ref={buttonRef}>
