@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 interface MenuItemData {
   link: string;
   text: string;
-  image: string;
+  image: string | string[];
 }
 
 interface FlowingMenuProps {
@@ -79,6 +79,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
   const animationRef = useRef<gsap.core.Tween | null>(null);
   const [repetitions, setRepetitions] = useState(4);
 
+  const images = Array.isArray(image) ? image : [image];
+
   const animationDefaults = { duration: 0.6, ease: 'expo' };
 
   const findClosestEdge = (mouseX: number, mouseY: number, width: number, height: number): 'top' | 'bottom' => {
@@ -117,7 +119,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
       animationRef.current = gsap.to(marqueeInnerRef.current, {
         x: -contentWidth,
-        duration: speed,
+        duration: (contentWidth / 1000) * speed,
         ease: 'none',
         repeat: -1
       });
@@ -178,11 +180,15 @@ const MenuItem: React.FC<MenuItemProps> = ({
         <div className="h-full w-fit flex" ref={marqueeInnerRef}>
           {[...Array(repetitions)].map((_, idx) => (
             <div className="marquee-part flex items-center flex-shrink-0" key={idx} style={{ color: marqueeTextColor }}>
-              <span className="whitespace-nowrap uppercase leading-[1] px-[1vw] h3">{text}</span>
-              <div
-                className="w-[200px] h-[7vh] my-[2em] mx-[2vw] py-[1em] rounded-[50px] bg-cover bg-center"
-                style={{ backgroundImage: `url(${image})` }}
-              />
+              {images.map((img, imgIdx) => (
+                <React.Fragment key={imgIdx}>
+                  <span className="whitespace-nowrap uppercase leading-[1] px-[1vw] h3">{text}</span>
+                  <div
+                    className="w-[200px] h-[7vh] my-[2em] mx-[2vw] py-[1em] rounded-[50px] bg-cover bg-center"
+                    style={{ backgroundImage: `url(${img})` }}
+                  />
+                </React.Fragment>
+              ))}
             </div>
           ))}
         </div>
