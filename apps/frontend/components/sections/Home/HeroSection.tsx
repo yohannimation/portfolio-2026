@@ -45,21 +45,6 @@ export default function HeroSection() {
         }
       }
     );
-
-    gsap.to(blurRef.current, {
-      "--blur-amount": "24px",
-      "--mask-radius-x": "150%",
-      "--mask-radius-y": "100%",
-      "--mask-radius": "100%",
-      "--mask-radius-edge": "175%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: 0,
-        end: 300,
-        scrub: true,
-      }
-    });
   }, []);
 
   return (
