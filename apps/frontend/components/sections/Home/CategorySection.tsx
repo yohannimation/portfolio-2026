@@ -25,21 +25,17 @@ export default function CategorySection() {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
+    gsap.to(contentWrapperRef.current, {
+      opacity: 0,
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
-        end: "+80%",
+        start: "bottom 35%",
+        end: "bottom 10%",
         scrub: true,
-        pin: true,
-        pinSpacing: false,
       },
     });
-
-    tl.to(contentWrapperRef.current, { y: -50, duration: 1 })
-      .to(contentWrapperRef.current, { opacity: 0, y: -1000, duration: 1 }, ">")
-      .to(sectionRef.current, { duration: 0.4 }, "<");
   }, { scope: sectionRef });
+
 
   const categories: CategoryInterface[] = [
     {
@@ -70,23 +66,23 @@ export default function CategorySection() {
         relative
         px-4 py-6
         sm:p-20
+        flex
+        items-center
+        justify-end
+        flex-col
+        min-h-[75dvh]
         text-white
         bg-primary
         z-2
-        min-h-[100dvh]
-        flex
-        items-center
-        justify-center
       "
     >
-      <div ref={contentWrapperRef} className="w-full">
+      <div ref={contentWrapperRef} className="flex flex-col items-center">
         <div
           className="
             flex
             flex-col lg:flex-row
             justify-center
             gap-10
-            h-full
           "
         >
           <div className="flex-1">
