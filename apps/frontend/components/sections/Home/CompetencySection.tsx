@@ -46,8 +46,8 @@ export default function CompetencySection() {
     const targetRadius = window.innerWidth < 640 ? "0.75rem" : "2.5rem";
     const paddingSection = window.innerWidth < 640 ? "16px 8px" : "16px 12px";
 
-    gsap.set(sectionRef.current, { padding: 0 });
-    gsap.set(innerRef.current, { borderRadius: 0 });
+    gsap.set(sectionRef.current, { padding: 0, opacity: 0 });
+    gsap.set(innerRef.current, { borderRadius: 0, y: 200 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -64,13 +64,21 @@ export default function CompetencySection() {
     });
 
     tl.to(sectionRef.current, {
+      opacity: 1,
+      duration: 300 / (1.5 * window.innerHeight)
+    }, 0)
+    .to(innerRef.current, {
+      y: 0,
+      duration: 300 / (1.5 * window.innerHeight)
+    }, 0)
+    .to(sectionRef.current, {
       padding: paddingSection,
       duration: 1
-    }, 0)
+    }, ">")
     .to(innerRef.current, {
       borderRadius: targetRadius,
       duration: 1
-    }, 0);
+    }, "<");
   }, { scope: sectionRef });
 
   const accordionItemsMobile: accordionItem[] = competencies.map(
@@ -159,7 +167,7 @@ export default function CompetencySection() {
     <section
       id="competencies"
       ref={sectionRef}
-      className="relative p-2 py-4 sm:p-3 sm:py-4 min-h-[100dvh] bg-primary flex flex-col items-center justify-center overflow-hidden"
+      className="relative p-2 py-4 sm:p-3 sm:py-4 h-[100dvh] bg-primary flex flex-col items-center justify-center z-4 overflow-hidden"
     >
       <div
         ref={innerRef}
@@ -171,6 +179,7 @@ export default function CompetencySection() {
           className="
             flex
             flex-col
+            justify-center
             gap-3
             h-full
           "
