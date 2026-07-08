@@ -25,19 +25,14 @@ export default function CategorySection() {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: "+=95%",
-      pin: true,
-    });
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
         end: "+=150%",
         scrub: true,
+        pin: true,
+        pinSpacing: false,
       },
     });
 
