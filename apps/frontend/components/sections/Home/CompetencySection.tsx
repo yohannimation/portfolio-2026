@@ -45,7 +45,7 @@ export default function CompetencySection() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const targetRadius = window.innerWidth < 640 ? "0.75rem" : "2.5rem";
+    const targetRadius = window.innerWidth < 640 ? "0.75rem" : "3rem";
     const paddingSection = window.innerWidth < 640 ? "16px 8px" : "16px 12px";
 
     gsap.set(wrapperRef.current, { padding: 0 });
