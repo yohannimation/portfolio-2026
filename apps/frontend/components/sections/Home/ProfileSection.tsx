@@ -14,12 +14,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProfileSection() {
   const sectionRef = useRef(null);
   const bgRef = useRef(null);
-  const titleRef = useRef(null);
-  const cardRef = useRef(null);
-  const textRef = useRef(null);
-  const buttonRef = useRef(null);
+  const contentRef = useRef(null);
 
   useGSAP(() => {
+    const borderRadius = window.innerWidth < 640 ? "0.75rem" : "3rem";
+
+    gsap.set(contentRef.current, { opacity: 0 });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -37,7 +38,17 @@ export default function ProfileSection() {
       left: "50%",
       xPercent: -50,
     });
-    gsap.set([cardRef.current, titleRef.current, textRef.current, buttonRef.current], { opacity: 1 });
+
+
+    gsap.to(contentRef.current, {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 20%",
+        end: "top 0%",
+        scrub: true,
+      },
+    });
 
     tl.to(bgRef.current, {
       width: "40vw",
@@ -48,7 +59,10 @@ export default function ProfileSection() {
     .to(bgRef.current, {
       width: "100%",
       height: "100%",
-      borderRadius: "2rem 2rem 0 0",
+      borderTopLeftRadius: borderRadius,
+      borderTopRightRadius: borderRadius,
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
       duration: 0.7,
       ease: "power1.out",
     })
@@ -69,23 +83,24 @@ export default function ProfileSection() {
 
       {/* Content Layer */}
       <div
+        ref={contentRef}
         className="
           relative
           grid
           grid-cols-2 xl:grid-cols-3
           grid-rows-none
           gap-8
-          px-4 py-6
+          px-4 py-6 sm:p-20
           sm:p-20
           h-dvh
-          rounded-t-sm sm:rounded-t-4xl
+          rounded-t-sm sm:rounded-t-5xl
           z-5
         "
       >
         <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-center items-center lg:items-end z-5">
           <div>
-            <h1 ref={titleRef}>Yohann RENAULD</h1>
-            <p ref={textRef}>
+            <h1>Yohann RENAULD</h1>
+            <p>
               Développeur web passionné par les interfaces modernes et la
               création visuelle, je construis mon expérience depuis plusieurs
               années à travers l'alternance et des projets personnels. Dans la
@@ -97,14 +112,11 @@ export default function ProfileSection() {
             </p>
           </div>
 
-          <div className="mt-4 w-fit" ref={buttonRef}>
+          <div className="mt-4 w-fit">
             <ElasticButton anchor="/about-me">Mieux me connaître</ElasticButton>
           </div>
         </div>
-        <div
-          ref={cardRef}
-          className="col-span-full lg:col-span-1 xl:col-span-1 flex justify-center items-center"
-        >
+        <div className="col-span-full lg:col-span-1 xl:col-span-1 flex justify-center items-center">
           <TiltedCard
             imageSrc={
               "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
