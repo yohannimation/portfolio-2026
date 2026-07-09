@@ -40,14 +40,17 @@ interface competenciesInterface {
 
 export default function CompetencySection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const targetRadius = window.innerWidth < 640 ? "0.75rem" : "2.5rem";
     const paddingSection = window.innerWidth < 640 ? "16px 8px" : "16px 12px";
 
-    gsap.set(sectionRef.current, { padding: 0, opacity: 0 });
-    gsap.set(innerRef.current, { borderRadius: 0, y: 200 });
+    gsap.set(wrapperRef.current, { padding: 0 });
+    gsap.set(innerRef.current, { borderRadius: 0 });
+    gsap.set(contentRef.current, { opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -56,29 +59,22 @@ export default function CompetencySection() {
         end: "+=150%",
         pin: true,
         scrub: true,
-        onLeave: () => {
-          gsap.set(sectionRef.current, { padding: paddingSection });
-          gsap.set(innerRef.current, { borderRadius: targetRadius });
-        },
       },
     });
 
-    tl.to(sectionRef.current, {
-      opacity: 1,
-      duration: 300 / (1.5 * window.innerHeight)
-    }, 0)
-    .to(innerRef.current, {
-      y: 0,
-      duration: 300 / (1.5 * window.innerHeight)
-    }, 0)
-    .to(sectionRef.current, {
-      padding: paddingSection,
-      duration: 1
-    }, ">")
+    tl.to(wrapperRef.current, {
+        padding: paddingSection,
+        duration: 1
+      }, ">"
+    )
     .to(innerRef.current, {
       borderRadius: targetRadius,
       duration: 1
-    }, "<");
+    }, "<")
+    .to(contentRef.current, {
+      opacity: 1,
+      duration: 300 / (1.5 * window.innerHeight)
+    }, ">");
   }, { scope: sectionRef });
 
   const accordionItemsMobile: accordionItem[] = competencies.map(
@@ -167,43 +163,46 @@ export default function CompetencySection() {
     <section
       id="competencies"
       ref={sectionRef}
-      className="relative p-2 py-4 sm:p-3 sm:py-4 h-[100dvh] bg-primary flex flex-col items-center justify-center z-4 overflow-hidden"
+      className="relative p-0 py-0 h-[100dvh] bg-primary flex flex-col items-center justify-center z-4 overflow-hidden"
     >
-      <div
-        ref={innerRef}
-        className="w-full h-full p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl"
-      >
-        <AnimatedContent
-          container="competencies"
-          delay={0.2}
-          className="
-            flex
-            flex-col
-            justify-center
-            gap-3
-            h-full
-          "
+      <div ref={wrapperRef} className="w-full h-full">
+        <div
+          ref={innerRef}
+          className="w-full h-full p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl"
         >
-          <h2>COMPETENCES</h2>
-          <div className="relative">
-            <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
-              {accordionItemsMobile.map((accordion) => (
-                <AccordionItem key={accordion.value} value={accordion.value}>
-                  <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
-                  <AccordionContent>{accordion.content}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-            <Accordion type="single" collapsible defaultValue="frontend" className="hidden lg:block">
-              {accordionItemsDesktop.map((accordion) => (
-                <AccordionItem key={accordion.value} value={accordion.value}>
-                  <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
-                  <AccordionContent>{accordion.content}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div
+            // container="competencies"
+            // delay={0.2}
+            ref={contentRef}
+            className="
+              flex
+              flex-col
+              justify-center
+              gap-3
+              h-full
+            "
+          >
+            <h2>COMPETENCES</h2>
+            <div className="relative">
+              <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
+                {accordionItemsMobile.map((accordion) => (
+                  <AccordionItem key={accordion.value} value={accordion.value}>
+                    <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
+                    <AccordionContent>{accordion.content}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+              <Accordion type="single" collapsible defaultValue="frontend" className="hidden lg:block">
+                {accordionItemsDesktop.map((accordion) => (
+                  <AccordionItem key={accordion.value} value={accordion.value}>
+                    <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
+                    <AccordionContent>{accordion.content}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
-        </AnimatedContent>
+        </div>
       </div>
     </section>
   );
