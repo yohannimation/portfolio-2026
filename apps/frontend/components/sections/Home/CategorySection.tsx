@@ -76,13 +76,14 @@ export default function CategorySection() {
         z-2
       "
     >
-      <div ref={contentWrapperRef} className="flex flex-col items-center">
+      <div ref={contentWrapperRef} className="flex flex-col items-center w-full">
         <div
           className="
             flex
             flex-col lg:flex-row
             justify-center
             gap-10
+            w-full
           "
         >
           <div className="flex-1">
