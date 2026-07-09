@@ -56,7 +56,7 @@ export default function CompetencySection() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=150%",
+        end: "+=700",
         pin: true,
         scrub: true,
       },
@@ -64,16 +64,16 @@ export default function CompetencySection() {
 
     tl.to(wrapperRef.current, {
         padding: paddingSection,
-        duration: 1
+        duration: 2
       }, ">"
     )
     .to(innerRef.current, {
       borderRadius: targetRadius,
-      duration: 1
+      duration: 2
     }, "<")
     .to(contentRef.current, {
       opacity: 1,
-      duration: 300 / (1.5 * window.innerHeight)
+      duration: 3
     }, ">");
   }, { scope: sectionRef });
 
