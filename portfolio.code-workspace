@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "Frontend (Next.js)",
+			"path": "apps/frontend"
+		},
+		{
+			"name": "Backend (Symfony)",
+			"path": "apps/backend"
+		},
+		{
+			"name": "Root",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.php": "php"
+		}
+	}
+}
