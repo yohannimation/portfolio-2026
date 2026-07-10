@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from 'react';
+import Image from 'next/image';
 
 // Decorative components
 import dynamic from 'next/dynamic';
@@ -11,7 +12,6 @@ const HeroBackground = dynamic(() => import('@/components/decorative/HeroBackgro
 // UI components
 import { Badge } from "@/components/ui/badge";
 import ElasticButton from '@/components/ui/elasticButton';
-import Image from 'next/image';
 
 // Animation components
 import FadeContent from "@/components/FadeContent";
