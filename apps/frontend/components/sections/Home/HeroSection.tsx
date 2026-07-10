@@ -55,8 +55,8 @@ export default function HeroSection() {
           delay={1.5}
           className="flex items-center gap-4"
         >
-          <div className="flex flex-col">
-            <p className="text-xl text-shadow-[0_0_5px_var(--background)]">
+          <div className="flex flex-col gap-1">
+            <p className="p-1 w-fit rounded-[8px] text-xl bg-white/10 backdrop-blur-xs">
               <span className="underline">Yohann RENAULD</span>
               <br />
               Portfolio {date.getFullYear()}
@@ -85,9 +85,28 @@ export default function HeroSection() {
 
         <FadeContent duration={1} delay={1.5}>
           <div className="flex flex-col lg:items-center justify-end lg:flex-row gap-2 lg:gap-10">
-            <p className="p-1 w-fit rounded-sm">
-              Développeur Front-End passionné par l'expérience utilisateur.<br />
-              J'imagine et développe des interfaces performantes, tout en explorant la création visuelle et l'animation.
+            <p className="w-fit rounded-[8px] text-lg leading-none">
+              <span className="
+                  inline-block
+                  leading-6
+                  pb-0 pt-2 px-2
+                  bg-white/10
+                  backdrop-blur-xs
+                "
+              >
+                Développeur Front-End passionné par l'expérience utilisateur.
+              </span>
+              <br />
+              <span className="
+                  inline-block
+                  leading-6
+                  pb-2 pt-2 px-2
+                  bg-white/10
+                  backdrop-blur-xs
+                "
+              >
+                J'imagine et développe des interfaces performantes, tout en explorant la création visuelle et l'animation.
+              </span>
             </p>
             <ElasticButton
               onClick={() => { document.getElementById("category")?.scrollIntoView(); }}

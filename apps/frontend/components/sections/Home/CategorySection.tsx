@@ -88,7 +88,7 @@ export default function CategorySection() {
         >
           <div className="flex-1">
             <h2>CATEGORIES</h2>
-            <p>
+            <p className="text-xl">
               Du développement web à la création audiovisuelle, chaque projet est
               l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
               compétences.

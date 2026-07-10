@@ -100,7 +100,7 @@ export default function ProfileSection() {
         <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-center items-center lg:items-end z-5">
           <div>
             <h1>Yohann RENAULD</h1>
-            <p>
+            <p className="text-xl">
               Développeur web passionné par les interfaces modernes et la
               création visuelle, je construis mon expérience depuis plusieurs
               années à travers l'alternance et des projets personnels. Dans la
