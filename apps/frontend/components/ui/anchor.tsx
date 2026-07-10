@@ -22,6 +22,7 @@ export default function Anchor({
         relative
         w-fit
         p-0.5
+        isolate
 
         after:content-['']
         after:bg-primary
