@@ -1,0 +1,32 @@
+FROM php:8.3-fpm-alpine
+
+# System dependencies + PHP extensions required for Symfony / MySQL
+RUN apk add --no-cache \
+        icu-dev \
+        libzip-dev \
+        zip \
+        unzip \
+        git \
+        bash \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install -j$(nproc) \
+        pdo \
+        pdo_mysql \
+        intl \
+        zip \
+        opcache
+
+# Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+
+# Code copy (overwritten by the volume in dev)
+COPY . /var/www/html
+
+RUN chown -R www-data:www-data /var/www/html
+RUN chmod +x /var/www/html/docker-entrypoint.sh
+
+EXPOSE 9000
+
+ENTRYPOINT ["/var/www/html/docker-entrypoint.sh"]
