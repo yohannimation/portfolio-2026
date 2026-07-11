@@ -70,6 +70,7 @@ export default function CategorySection() {
             flex
             flex-col lg:flex-row
             justify-center
+            items-center
             gap-10
             w-full
           "
@@ -85,14 +86,14 @@ export default function CategorySection() {
             </p>
           </div>
 
-          <div className="flex-1 relative mx-auto w-full max-w-full h-full overflow-hidden">
+          <div className="flex-1 flex items-center justify-center relative mx-auto w-full max-w-full h-full overflow-hidden">
             {
               isLoading && 
-              <p className="text-center animate-pulse">Chargement des catégories...</p>
+                <p className="w-full animate-pulse">Chargement des catégories...</p>
             }
             {
               error ?
-                <p className="text-center">Désolé, il y a une petite erreur.</p>
+                <p className="w-full">Désolé, il y a une petite erreur.</p>
               :
                 <FlowingMenu
                   items={categoryItems}
