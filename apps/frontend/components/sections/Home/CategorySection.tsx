@@ -14,6 +14,9 @@ import FlowingMenu from "@/components/FlowingMenu";
 import type { CategoryInterface } from "@/types/category.interface"
 import CountUp from "@/components/CountUp";
 
+// Hooks
+import { useHomePage } from "@/hooks/useHomePage";
+
 interface CategoryItem {
   link: string;
   text: string;
@@ -36,23 +39,9 @@ export default function CategorySection() {
     });
   }, { scope: sectionRef });
 
+  const { categories, isLoading, error } = useHomePage();
 
-  const categories: CategoryInterface[] = [
-    {
-      id: 1,
-      name: "Développement web",
-      description: "",
-      slug: "web",
-    },
-    {
-      id: 2,
-      name: "Audiovisuel",
-      description: "",
-      slug: "audiovisual",
-    },
-  ];
-
-  const categoryItems: CategoryItem[] = categories.map((category, index) => ({
+  const categoryItems: CategoryItem[] = (categories || []).map((category, index) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
     image: [`https://picsum.photos/600/400?random=${index + 1}`, `https://picsum.photos/600/400?random=${index + 2}`, `https://picsum.photos/600/400?random=${index + 3}`],
@@ -98,14 +87,23 @@ export default function CategorySection() {
           </div>
 
           <div className="flex-1 relative mx-auto w-full max-w-full h-full overflow-hidden">
-            <FlowingMenu
-              items={categoryItems}
-              speed={10}
-              bgColor="var(--primary-foreground)"
-              textColor="var(--foreground)"
-              marqueeBgColor="var(--secondary)"
-              borderColor="var(--primary)"
-            />
+            {
+              isLoading && 
+              <p className="text-center animate-pulse">Chargement des catégories...</p>
+            }
+            {
+              error ?
+                <p className="text-center">Désolé, il y a une petite erreur.</p>
+              :
+                <FlowingMenu
+                  items={categoryItems}
+                  speed={10}
+                  bgColor="var(--primary-foreground)"
+                  textColor="var(--foreground)"
+                  marqueeBgColor="var(--secondary)"
+                  borderColor="var(--primary)"
+                />
+            }
           </div>
         </div>
         <p className="h1 text-center mt-8">
