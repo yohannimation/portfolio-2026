@@ -40,6 +40,7 @@ export default function CategorySection() {
 
   const { categories, isLoading, error } = useHomePage();
 
+  const totalProjects = (categories || []).reduce((acc, category) => acc + (category.projects?.length || 0), 0);
   const categoryItems: CategoryItem[] = (categories || []).map((category) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
@@ -109,7 +110,7 @@ export default function CategorySection() {
         <p className="h1 text-center mt-8">
           <CountUp
             from={0}
-            to={17}
+            to={totalProjects}
             separator=" "
           /> PROJETS
         </p>
