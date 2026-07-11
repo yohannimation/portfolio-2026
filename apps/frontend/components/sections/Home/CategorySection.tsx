@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 import FlowingMenu from "@/components/FlowingMenu";
 
 // Types
-import type { CategoryInterface } from "@/types/category.interface"
 import CountUp from "@/components/CountUp";
 
 // Hooks
@@ -41,10 +40,10 @@ export default function CategorySection() {
 
   const { categories, isLoading, error } = useHomePage();
 
-  const categoryItems: CategoryItem[] = (categories || []).map((category, index) => ({
+  const categoryItems: CategoryItem[] = (categories || []).map((category) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
-    image: [`https://picsum.photos/600/400?random=${index + 1}`, `https://picsum.photos/600/400?random=${index + 2}`, `https://picsum.photos/600/400?random=${index + 3}`],
+    image: category.projects?.slice(0, 4).map((project) => project.miniatureFile) || [],
   }));
 
   return (

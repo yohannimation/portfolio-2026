@@ -6,7 +6,7 @@ export interface ProjectInterface {
     description: string;
     source: string;
     sourceType: string;
-    miniatureFile: File;
+    miniatureFile: string;
     miniatureName: string;
     active: boolean;
     tags: TagInterface[];
