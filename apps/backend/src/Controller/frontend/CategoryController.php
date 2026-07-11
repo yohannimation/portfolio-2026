@@ -17,11 +17,11 @@ final class CategoryController extends AbstractApiController
         CategoryRepository $categoryRepository,
     ): Response
     {
-        $categories = $categoryRepository->findAll();
-        if (!sizeof($categories))
-            throw $this->createNotFoundException('No categories.');
-
-        return $this->apiResponse($categories, Response::HTTP_OK, ['api:read']);
+        return $this->apiResponse(
+            $categoryRepository->findAll(),
+            Response::HTTP_OK,
+            ['api:detail']
+        );
     }
 
     #[Route('/{id}', name: '.show.without-slug', methods: ['GET'], requirements: ['id' => '\d+'])]
