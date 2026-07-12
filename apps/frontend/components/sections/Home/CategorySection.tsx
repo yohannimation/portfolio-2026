@@ -11,8 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 import FlowingMenu from "@/components/FlowingMenu";
 
 // Types
-import type { CategoryInterface } from "@/types/category.interface"
 import CountUp from "@/components/CountUp";
+
+// Hooks
+import { useHomePage } from "@/hooks/useHomePage";
 
 interface CategoryItem {
   link: string;
@@ -36,26 +38,13 @@ export default function CategorySection() {
     });
   }, { scope: sectionRef });
 
+  const { categories, isLoading, error } = useHomePage();
 
-  const categories: CategoryInterface[] = [
-    {
-      id: 1,
-      name: "Développement web",
-      description: "",
-      slug: "web",
-    },
-    {
-      id: 2,
-      name: "Audiovisuel",
-      description: "",
-      slug: "audiovisual",
-    },
-  ];
-
-  const categoryItems: CategoryItem[] = categories.map((category, index) => ({
+  const totalProjects = (categories || []).reduce((acc, category) => acc + (category.projects?.length || 0), 0);
+  const categoryItems: CategoryItem[] = (categories || []).map((category) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
-    image: [`https://picsum.photos/600/400?random=${index + 1}`, `https://picsum.photos/600/400?random=${index + 2}`, `https://picsum.photos/600/400?random=${index + 3}`],
+    image: category.projects?.slice(0, 4).map((project) => project.miniatureFile) || [],
   }));
 
   return (
@@ -82,6 +71,7 @@ export default function CategorySection() {
             flex
             flex-col lg:flex-row
             justify-center
+            items-center
             gap-10
             w-full
           "
@@ -97,21 +87,30 @@ export default function CategorySection() {
             </p>
           </div>
 
-          <div className="flex-1 relative mx-auto w-full max-w-full h-full overflow-hidden">
-            <FlowingMenu
-              items={categoryItems}
-              speed={10}
-              bgColor="var(--primary-foreground)"
-              textColor="var(--foreground)"
-              marqueeBgColor="var(--secondary)"
-              borderColor="var(--primary)"
-            />
+          <div className="flex-1 flex items-center justify-center relative mx-auto w-full max-w-full h-full overflow-hidden">
+            {
+              isLoading && 
+                <p className="w-full animate-pulse">Chargement des catégories...</p>
+            }
+            {
+              error ?
+                <p className="w-full">Désolé, il y a une petite erreur.</p>
+              :
+                <FlowingMenu
+                  items={categoryItems}
+                  speed={10}
+                  bgColor="var(--primary-foreground)"
+                  textColor="var(--foreground)"
+                  marqueeBgColor="var(--secondary)"
+                  borderColor="var(--primary)"
+                />
+            }
           </div>
         </div>
         <p className="h1 text-center mt-8">
           <CountUp
             from={0}
-            to={17}
+            to={totalProjects}
             separator=" "
           /> PROJETS
         </p>
