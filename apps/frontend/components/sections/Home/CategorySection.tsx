@@ -44,7 +44,7 @@ export default function CategorySection() {
   const categoryItems: CategoryItem[] = (categories || []).map((category) => ({
     link: `category/${category.id}-${category.slug}`,
     text: category.name,
-    image: category.projects?.slice(0, 4).map((project) => project.miniatureFile) || [],
+    image: category.projects?.slice(0, 4).map((project) => `/miniature/projects/${project.miniatureName}`) || [],
   }));
 
   return (
