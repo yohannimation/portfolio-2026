@@ -1,12 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 // UI components
 import {
   Accordion,
@@ -14,14 +7,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Icon } from "@iconify/react";
-
-// Animation components
-import AnimatedContent from "@/components/AnimatedContent";
 import { Badge } from "@/components/ui/badge";
 
-import competencies from "@/data/competencies.json";
+// Libs
 import { getBrandColor } from "@/lib/utils";
+
+// GSAP
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+// Icons
+import { Icon } from "@iconify/react";
+
+// Data
+import competencies from "@/data/competencies.json";
 
 interface accordionItem {
   value: string;

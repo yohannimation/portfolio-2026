@@ -1,14 +1,14 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 // UI components
 import ElasticButton from "@/components/ui/elasticButton";
 import TiltedCard from "@/components/TiltedCard";
 
+// GSAP
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProfileSection() {
