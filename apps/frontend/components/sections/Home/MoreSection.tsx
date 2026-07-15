@@ -1,7 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+// UI components
+import { Button } from "@/components/ui/button";
 
 export default function MoreSection() {
   return (

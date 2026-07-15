@@ -21,7 +21,6 @@ import SplitText from "@/components/SplitText";
 // GSAP
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
 // Icons
