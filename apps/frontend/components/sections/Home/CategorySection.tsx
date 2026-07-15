@@ -9,12 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 // UI components
 import FlowingMenu from "@/components/FlowingMenu";
-
-// Types
 import CountUp from "@/components/CountUp";
 
-// Hooks
-import { useHomePage } from "@/hooks/useHomePage";
+// Types
+import type { CategoryInterface } from "@/types/category.interface";
 
 interface CategoryItem {
   link: string;
@@ -22,7 +20,7 @@ interface CategoryItem {
   image: string | string[];
 }
 
-export default function CategorySection() {
+export default function CategorySection({ categories }: { categories: CategoryInterface[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -37,8 +35,6 @@ export default function CategorySection() {
       },
     });
   }, { scope: sectionRef });
-
-  const { categories, isLoading, error } = useHomePage();
 
   const totalProjects = (categories || []).reduce((acc, category) => acc + (category.projects?.length || 0), 0);
   const categoryItems: CategoryItem[] = (categories || []).map((category) => ({
@@ -79,8 +75,7 @@ export default function CategorySection() {
           <div className="flex-1">
             <h2>CATEGORIES</h2>
             <p className="text-xl">
-              Du développement web à la création audiovisuelle, chaque projet est
-              l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
+              Du développement web à la création audiovisuelle, chaque projet est l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
               compétences.
               <br />
               Parcourez mes réalisations et découvrez les univers qui m{"'"}inspirent à travers ces catégories.
@@ -88,23 +83,14 @@ export default function CategorySection() {
           </div>
 
           <div className="flex-1 flex items-center justify-center relative mx-auto w-full max-w-full h-full overflow-hidden">
-            {
-              isLoading && 
-                <p className="w-full animate-pulse">Chargement des catégories...</p>
-            }
-            {
-              error ?
-                <p className="w-full">Désolé, il y a une petite erreur.</p>
-              :
-                <FlowingMenu
-                  items={categoryItems}
-                  speed={10}
-                  bgColor="var(--primary-foreground)"
-                  textColor="var(--foreground)"
-                  marqueeBgColor="var(--secondary)"
-                  borderColor="var(--primary)"
-                />
-            }
+            <FlowingMenu
+              items={categoryItems}
+              speed={10}
+              bgColor="var(--primary-foreground)"
+              textColor="var(--foreground)"
+              marqueeBgColor="var(--secondary)"
+              borderColor="var(--primary)"
+            />
           </div>
         </div>
         <p className="h1 text-center mt-8">

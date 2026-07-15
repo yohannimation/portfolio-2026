@@ -1,3 +1,5 @@
+import { categoryService } from "@/services/category.service";
+
 // Section components
 import CategorySection from "@/components/sections/Home/CategorySection";
 import CompetencySection from "@/components/sections/Home/CompetencySection";
@@ -5,11 +7,13 @@ import HeroSection from "@/components/sections/Home/HeroSection";
 import MoreSection from "@/components/sections/Home/MoreSection";
 import ProfileSection from "@/components/sections/Home/ProfileSection";
 
-export default function Home() {
+export default async function Home() {
+  const categories = await categoryService.getCategories();
+
   return (
     <>
       <HeroSection />
-      <CategorySection />
+      <CategorySection categories={categories} />
       <ProfileSection />
       <CompetencySection />
       <MoreSection />
