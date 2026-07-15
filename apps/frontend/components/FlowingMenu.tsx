@@ -184,7 +184,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
                 <React.Fragment key={imgIdx}>
                   <span className="whitespace-nowrap uppercase leading-[1] px-[1vw] h3">{text}</span>
                   <div
-                    className="w-[200px] h-[5vh] my-[2em] mx-[2vw] py-[1em] rounded-[50px] bg-cover bg-center"
+                    className="w-[200px] h-[80%] my-[2em] mx-[2vw] py-[1em] rounded-[50px] bg-cover bg-center"
                     style={{ backgroundImage: `url(${img})` }}
                   />
                 </React.Fragment>
