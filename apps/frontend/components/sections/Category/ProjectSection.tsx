@@ -11,14 +11,12 @@ interface ProjectSectionInterface {
 }
 
 export default function ProjectSection({ projects }: ProjectSectionInterface) {
-  console.log(projects)
-
   return (
-    <section id="project" className="mt-10">
+    <section id="project">
       <ul className="flex flex-col gap-8">
-        {projects?.map((project) => (
+        {projects?.map((project, index) => (
           <li key={project.id}>
-            <LinkProject project={project} />
+            <LinkProject project={project} index={index} />
           </li>
         ))}
       </ul>
