@@ -23,7 +23,7 @@ export default async function LinkProject({ project }: LinkProjectInterface) {
     <article id={articleId}>
       <ProjectHeader name={project.name} date={project.active ? project.date : ""} />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ProjectMiniature
           active={project.active}
           miniatureName={project.miniatureName}
