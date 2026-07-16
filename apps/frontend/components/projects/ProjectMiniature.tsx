@@ -13,33 +13,41 @@ interface ProjectMiniatureInterface {
 }
 
 export default async function ProjectMiniature({
-  active,
   miniatureName,
-  sourceType,
-  source,
-  tags
 }: ProjectMiniatureInterface) {
   const baseUrl = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || "";
   const miniatureSource = `${baseUrl}/miniature/projects/${miniatureName}`;
 
   return (
     <div
-      className="w-full"
+      className="
+        relative
+        mx-auto
+        w-full max-w-[650px]
+        h-full
+        rounded-md
+        aspect-6/5
+        overflow-hidden
+      "
     >
+      <Image
+        src={miniatureSource}
+        alt={miniatureName}
+        loading="lazy"
+        fill={true}
+        unoptimized
+        className="object-cover"
+      />
       <span
         className="
           relative
           block
-          mx-auto
-          w-full max-w-[500px] h-full
+          w-full h-full
           bg-muted
-          rounded-md
-          aspect-square
-          overflow-hidden
           animate-pulse
+          -z-1
         "
       >
-        <Image src={miniatureSource} alt={miniatureName} loading="lazy" fill={true} />
       </span>
     </div>
   );

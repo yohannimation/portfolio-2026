@@ -27,8 +27,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <h1 className="uppercase">{category.name}</h1>
       <p>{category.description}</p>
 
-      <section className="mt-8">
-        <ul className="flex flex-col gap-6">
+      <section className="mt-10">
+        <ul className="flex flex-col gap-8">
           {projects?.map((project) => (
             <li key={project.id}>
               <LinkProject project={project} />
