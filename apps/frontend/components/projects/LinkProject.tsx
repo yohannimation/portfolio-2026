@@ -11,19 +11,21 @@ import type { ProjectInterface } from "@/types/project.interface";
 
 interface LinkProjectInterface {
   project: ProjectInterface
+  index: number
 }
 
-export default function LinkProject({ project }: LinkProjectInterface) {
+export default function LinkProject({ project, index }: LinkProjectInterface) {
   const articleId = slugify(
     project.name,
     { lower: true }
   )
+  const isOdd = index % 2 === 1;
   
   return (
     <article id={articleId}>
       <ProjectHeader name={project.name} date={project.active ? project.date : ""} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className={`flex gap-4 flex-col ${isOdd ? "md:flex-row-reverse" : "md:flex-row"}`}>
         <ProjectMiniature
           active={project.active}
           miniatureName={project.miniatureName}
