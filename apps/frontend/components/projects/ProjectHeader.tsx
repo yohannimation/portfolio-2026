@@ -3,7 +3,7 @@ interface ProjectHeaderInterface {
   date: string
 }
 
-export default async function ProjectHeader({ name, date }: ProjectHeaderInterface) {
+export default function ProjectHeader({ name, date }: ProjectHeaderInterface) {
   let tagDate, displayDate;
   
   if (date != "") {

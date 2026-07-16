@@ -13,7 +13,7 @@ interface LinkProjectInterface {
   project: ProjectInterface
 }
 
-export default async function LinkProject({ project }: LinkProjectInterface) {
+export default function LinkProject({ project }: LinkProjectInterface) {
   const articleId = slugify(
     project.name,
     { lower: true }
