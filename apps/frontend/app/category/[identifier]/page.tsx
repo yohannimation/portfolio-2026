@@ -1,5 +1,6 @@
 // Section components
-import LinkProject from "@/components/projects/LinkProject";
+import HeroSection from "@/components/sections/Category/HeroSection";
+import ProjectSection from "@/components/sections/Category/ProjectSection";
 
 // Services
 import { categoryService } from "@/services/category.service";
@@ -18,25 +19,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const category = await categoryService.getCategoryById(id);
   const projects = category.projects;
   
-  console.log(projects)
-
   return (
     <div
-      className="px-4 py-6 md:p-20"
+      className="px-4 py-6 md:px-20"
     >
-      <h1 className="uppercase">{category.name}</h1>
-      <p>{category.description}</p>
-
-      <section className="mt-10">
-        <ul className="flex flex-col gap-8">
-          {projects?.map((project) => (
-            <li key={project.id}>
-              <LinkProject project={project} />
-            </li>
-          ))}
-        </ul>
-
-      </section>
+      <HeroSection category={category} />
+      { projects && <ProjectSection projects={projects} /> }
     </div>
   );
 }

@@ -3,7 +3,7 @@ interface ProjectContentInterface {
   description: string
 }
 
-export default async function ProjectContent({ type, description }: ProjectContentInterface) {
+export default function ProjectContent({ type, description }: ProjectContentInterface) {
   return (
     <div
       className="

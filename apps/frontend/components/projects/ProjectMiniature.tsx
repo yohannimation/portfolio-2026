@@ -12,7 +12,7 @@ interface ProjectMiniatureInterface {
   tags?: TagInterface[],
 }
 
-export default async function ProjectMiniature({
+export default function ProjectMiniature({
   miniatureName,
 }: ProjectMiniatureInterface) {
   const baseUrl = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || "";
