@@ -31,7 +31,7 @@ class Category
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['api:read', 'api:detail'])]
+    #[Groups(['api:detail'])]
     private ?string $icon = null;
 
     #[ORM\Column]
@@ -42,7 +42,7 @@ class Category
      * @var Collection<int, Project>
      */
     #[ORM\OneToMany(targetEntity: Project::class, mappedBy: 'category')]
-    #[Groups(['api:detail'])]
+    #[Groups(['api:read', 'api:detail'])]
     private Collection $projects;
 
     public function __construct()

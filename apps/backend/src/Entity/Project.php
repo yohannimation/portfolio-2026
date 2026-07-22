@@ -31,11 +31,11 @@ class Project
     private ?string $description = null;
 
     #[ORM\Column(length: 1024)]
-    #[Groups(['api:read', 'api:detail'])]
+    #[Groups(['api:detail'])]
     private ?string $source = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['api:read', 'api:detail'])]
+    #[Groups(['api:detail'])]
     private ?string $sourceType = null;
 
     #[Vich\UploadableField(mapping: 'project_miniature', fileNameProperty: 'miniatureName', size: 'miniatureSize')]
@@ -46,11 +46,11 @@ class Project
     private ?string $miniatureName = null;
 
     #[ORM\Column]
-    #[Groups(['api:read', 'api:detail'])]
+    #[Groups(['api:detail'])]
     private ?int $miniatureSize = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Groups(['api:read', 'api:detail'])]
+    #[Groups(['api:detail'])]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
