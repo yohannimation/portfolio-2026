@@ -20,9 +20,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const projects = category.projects;
   
   return (
-    <div
-      className="px-4 py-6 md:px-20"
-    >
+    <div className="px-4 py-6 md:px-20">
       <HeroSection category={category} />
       { projects && <ProjectSection projects={projects} /> }
     </div>

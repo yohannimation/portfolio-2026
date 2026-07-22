@@ -1,5 +1,8 @@
+// Types
+import type { TypeInterface } from "@/types/type.interface";
+
 interface ProjectContentInterface {
-  type: string,
+  type: TypeInterface,
   description: string
 }
 
@@ -14,7 +17,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
         md:aspect-6/5
       "
     >
-      <p>Projet <span>{type}</span></p>
+      <p>Projet <span>{type.value}</span></p>
       <p>{description}</p>
     </div>
   );

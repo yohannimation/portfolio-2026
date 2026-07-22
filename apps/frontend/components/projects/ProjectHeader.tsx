@@ -21,9 +21,7 @@ export default function ProjectHeader({ name, date }: ProjectHeaderInterface) {
     <header className="flex items-center gap-2">
       <h2 className="uppercase">{name}</h2>
       -
-      <time
-        dateTime={tagDate}
-      >
+      <time dateTime={tagDate}>
         {displayDate}
       </time>
     </header>

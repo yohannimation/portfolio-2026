@@ -28,12 +28,14 @@ export default function LinkProject({ project, index }: LinkProjectInterface) {
       <div className={`flex gap-4 flex-col ${isOdd ? "md:flex-row-reverse" : "md:flex-row"}`}>
         <ProjectMiniature
           active={project.active}
+          name={project.name}
           miniatureName={project.miniatureName}
           sourceType={project.sourceType}
           source={project.source}
           tags={project.tags}
+          isOdd={isOdd}
         />
-        <ProjectContent type="Un certain type" description={project.description} />
+        <ProjectContent type={project.type} description={project.description} />
       </div>
     </article>
   );

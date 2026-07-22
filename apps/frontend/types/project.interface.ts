@@ -1,4 +1,5 @@
 import type { TagInterface } from "./tag.interface";
+import type { TypeInterface } from "./type.interface";
 
 export interface ProjectInterface {
     id: number;
@@ -11,6 +12,7 @@ export interface ProjectInterface {
     miniatureName: string;
     active: boolean;
     date: string;
+    type: TypeInterface;
     tags: TagInterface[];
 }
 

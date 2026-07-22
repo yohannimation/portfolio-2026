@@ -12,7 +12,7 @@ interface ProjectSectionInterface {
 
 export default function ProjectSection({ projects }: ProjectSectionInterface) {
   return (
-    <section id="project">
+    <section id="project" className="mb-10 md:mb-20">
       <ul className="flex flex-col gap-8">
         {projects?.map((project, index) => (
           <li key={project.id}>
