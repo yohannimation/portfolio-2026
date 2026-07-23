@@ -16,7 +16,7 @@ export default function Anchor({
     <Link
       href={href}
       className={`
-        flex
+        inline-flex
         items-center
         gap-1.5
         relative
