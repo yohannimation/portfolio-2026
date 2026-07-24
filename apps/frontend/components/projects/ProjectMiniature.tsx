@@ -4,6 +4,7 @@ import Link from "next/link";
 
 // Components
 import { Badge } from "@/components/ui/badge";
+import { Backlight } from "@/components/ui/backlight";
 import { Button } from "@/components/ui/button";
 
 // Types
@@ -174,33 +175,42 @@ export default function ProjectMiniature({
               fixed inset-0
               flex justify-center items-center
               p-5 md:p-15 lg:p-30
-              bg-foreground/80
+              bg-background/80
               backdrop-blur-xs
               z-2
             " onClick={() => setVideoPlayerOpen(false)}
           >
-            <iframe
-              src={`https://www.youtube.com/embed/${source}`}
-              title={name}
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share
-              "
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
+            <Backlight
+              blur={40}
               className="
                 w-full max-w-[1300px]
                 border-3 border-primary
+                aspect-16/9
                 bg-muted
                 rounded-md
-                aspect-16/9
               "
-            />
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${source}`}
+                title={name}
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share
+                "
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="
+                  w-full
+                  aspect-16/9
+                  rounded-md
+                "
+              />
+            </Backlight>
           </div>
       }
     </>
