@@ -61,7 +61,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
 
             <div className="w-full">
-              <div className="mb-3">
+              <div className="mb-2">
                 <h3 className="uppercase">{item.title}</h3>
                 {
                   item.date && <span className="block mt-1">{item.date}</span>

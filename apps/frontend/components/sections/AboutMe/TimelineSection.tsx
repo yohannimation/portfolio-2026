@@ -17,7 +17,7 @@ export default function TimelineSection() {
           year: "numeric",
         }).format(new Date("2024-09-01T00:00:00+00:00")) + " - maintenant",
       content: (
-        <p>
+        <p className="text-lg">
           Poste chez{" "}
           <Anchor href={"https://evolutis.fr"} target="_blank">
             Evolutis <SquareArrowOutUpRight size={18} />
@@ -43,7 +43,7 @@ export default function TimelineSection() {
           year: "numeric",
         }).format(new Date("2024-08-31T00:00:00+00:00")),
       content: (
-        <p>
+        <p className="text-lg">
           Poste chez{" "}
           <Anchor href={"https://evolutis.fr"} target="_blank">
             Evolutis <SquareArrowOutUpRight size={18} />
