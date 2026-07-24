@@ -10,8 +10,8 @@ import { SquareArrowOutUpRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative p-5 sm:p-20 flex flex-col gap-3">
-      <h2>Yohann RENAULD</h2>
+    <section id="hero" className="relative min-h-screen p-5 sm:p-20 flex flex-col justify-center gap-3">
+      <h1>Yohann RENAULD</h1>
 
       <div
         className="
