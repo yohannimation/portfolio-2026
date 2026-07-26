@@ -1,4 +1,5 @@
 // Section components
+import CompetencySection from "@/components/sections/AboutMe/CompetencySection";
 import FaqSection from "@/components/sections/AboutMe/FaqSection";
 import GithubSection from "@/components/sections/AboutMe/GithubSection";
 import HeroSection from "@/components/sections/AboutMe/HeroSection";
@@ -11,8 +12,8 @@ export default async function AboutMePage() {
       <HeroSection />
       <TimelineSection />
       <GithubSection />
+      <CompetencySection />
       <PassionSection />
-      <h2>skills</h2>
       <FaqSection />
     </>
   );
