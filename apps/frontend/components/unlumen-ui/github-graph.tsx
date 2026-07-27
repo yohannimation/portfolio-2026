@@ -410,18 +410,9 @@ export function GithubGraph({
 
   return (
     <div
-      className={cn("w-fit max-w-full", className)}
+      className={cn("w-fit max-w-full mt-5", className)}
       aria-busy={resource.status === "loading"}
     >
-      {showAccount && (
-        // <p className="mb-5 text-lg font-medium tracking-tight text-foreground">
-        //   @{normalizedAccount ?? account}
-        // </p>
-        <Anchor href={`https://github.com/${normalizedAccount ?? account}`} className="mb-5 text-lg font-medium tracking-tight text-foreground" target="_blank">
-          @{normalizedAccount ?? account}
-        </Anchor>
-      )}
-
       {resource.status === "loading" && (
         <LoadingGraph
           cellSize={cellSize}
@@ -582,6 +573,15 @@ export function GithubGraph({
             </AnimatePresence>
           </div>
         </div>
+      )}
+
+      {showAccount && (
+        // <p className="mb-5 text-lg font-medium tracking-tight text-foreground">
+        //   @{normalizedAccount ?? account}
+        // </p>
+        <p className="text-lg">
+          GitHub account : <Anchor href={`https://github.com/${normalizedAccount ?? account}`} target="_blank">@{normalizedAccount ?? account}</Anchor>
+        </p>
       )}
 
       {showLegend && resource.status === "ready" && (
