@@ -69,8 +69,7 @@ export default function HeroSection() {
         cellSize={20}
         cellGap={4}
         cellRadius={6}
-        ambientEffect="twinkle"
-        ambientIntensity={0.7}
+        ambientEffect="none"
         className="mx-auto"
       />
     </section>
