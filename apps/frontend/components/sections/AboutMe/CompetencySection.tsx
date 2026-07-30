@@ -119,39 +119,36 @@ export default function CompetencySection() {
   return (
     <section
       id="competencies"
-      className="relative p-0 py-0 h-[100dvh] flex flex-col items-center justify-center z-4"
+      className="relative p-5 sm:p-20 w-full h-[100dvh] flex flex-col items-center justify-center bg-background z-4"
     >
-      <div className="w-full h-full">
-        <div className="w-full h-full p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl">
-          <div
-            className="
-              flex
-              flex-col
-              justify-center
-              gap-3
-              h-full
-            "
-          >
-            <h2>COMPETENCES</h2>
-            <div className="relative">
-              <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
-                {accordionItemsMobile.map((accordion) => (
-                  <AccordionItem key={accordion.value} value={accordion.value}>
-                    <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
-                    <AccordionContent>{accordion.content}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-              <Accordion type="single" collapsible defaultValue="frontend" className="hidden lg:block">
-                {accordionItemsDesktop.map((accordion) => (
-                  <AccordionItem key={accordion.value} value={accordion.value}>
-                    <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
-                    <AccordionContent>{accordion.content}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
+      <div
+        className="
+          flex
+          flex-col
+          justify-center
+          gap-3
+          w-full
+          h-full
+        "
+      >
+        <h2>COMPETENCES</h2>
+        <div className="relative">
+          <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
+            {accordionItemsMobile.map((accordion) => (
+              <AccordionItem key={accordion.value} value={accordion.value}>
+                <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
+                <AccordionContent>{accordion.content}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <Accordion type="single" collapsible defaultValue="frontend" className="hidden lg:block">
+            {accordionItemsDesktop.map((accordion) => (
+              <AccordionItem key={accordion.value} value={accordion.value}>
+                <AccordionTrigger>{accordion.trigger}</AccordionTrigger>
+                <AccordionContent>{accordion.content}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
