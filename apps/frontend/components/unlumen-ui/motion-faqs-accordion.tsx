@@ -46,7 +46,7 @@ function AccordionItem({
     <motion.div
       layout
       className={cn(
-        "overflow-hidden rounded-xl bg-foreground/5 text-foreground shadow-xs",
+        "overflow-hidden rounded-xl bg-white border border-primary",
         isOpen && " ",
       )}
       transition={{ type: "spring", stiffness: 280, damping: 28, mass: 0.9 }}
