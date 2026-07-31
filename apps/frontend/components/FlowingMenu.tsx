@@ -37,7 +37,7 @@ const FlowingMenu: React.FC<FlowingMenuProps> = ({
 }) => {
   return (
     <div
-      className="w-full overflow-hidden rounded-md"
+      className="w-full overflow-hidden rounded-xl"
       style={{
         backgroundColor: bgColor,
         border: `1px solid ${borderColor}`,
