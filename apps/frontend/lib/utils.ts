@@ -3,7 +3,6 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 import * as simpleIcons from "simple-icons"
-import { PageKeyInterface } from "@/types/page.interface";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
