@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import { Accordion as AccordionPrimitive } from "radix-ui"
+import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { ChevronDownIcon } from "lucide-react"
 
 function Accordion({
   className,
@@ -42,14 +43,19 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "h-[87px] p-5 group/accordion-trigger relative flex flex-1 items-center justify-between rounded-lg text-xl font-bold font-(family-name:--font-comfortaa) border border-transparent transition-all outline-none cursor-pointer focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+          "h-[87px] px-7 py-5 group/accordion-trigger relative flex flex-1 items-center justify-between rounded-lg text-xl font-bold font-(family-name:--font-comfortaa) border border-transparent transition-all outline-none cursor-pointer focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50",
           className
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon data-slot="accordion-trigger-icon" className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
-        <ChevronUpIcon data-slot="accordion-trigger-icon" className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
+        <span className="inline-flex items-center justify-center size-12 shrink-0 text-foreground">
+          <ChevronDownIcon
+            data-slot="accordion-trigger-icon"
+            className="pointer-events-none shrink-0 transition-transform duration-300 ease-out group-aria-expanded/accordion-trigger:rotate-180"
+            size={24}
+          />
+        </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
@@ -63,17 +69,28 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="px-5 pt-1.5 pb-2 overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className="overflow-hidden data-closed:animate-accordion-up"
       {...props}
     >
-      <div
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        transition={{
+          height: {
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+            mass: 0.8,
+          },
+          opacity: { duration: 0.2, ease: "easeOut" },
+        }}
         className={cn(
-          "pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          "px-5 pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
           className
         )}
       >
         {children}
-      </div>
+      </motion.div>
     </AccordionPrimitive.Content>
   )
 }
