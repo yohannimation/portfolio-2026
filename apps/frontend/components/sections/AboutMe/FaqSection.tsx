@@ -17,7 +17,7 @@ export default function FaqSection() {
         "De part mon expérience en entreprise et grâce aux outils moderne (tel que l'IA), je travaille efficacement tout en pretant une grande attention à la qualité du code que j'apporte.",
     },
     {
-      question: "Je push vraiment les .env ?",
+      question: <>Je push vraiment les <code>.env</code> ?</>,
       answer:
         "Non, fort heureusement.",
     },

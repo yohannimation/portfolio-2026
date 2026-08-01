@@ -11,7 +11,11 @@
           "target": "_blank",
           "title": "Télécharger mon CV"
         },
-        { "type": "link", "label": "Mentions légales", "href": "" }
+        {
+          "type": "link",
+          "label": "Mentions légales",
+          "href": "/legal-notices"
+        }
       ]
     },
     {
