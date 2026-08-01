@@ -410,7 +410,7 @@ export function GithubGraph({
 
   return (
     <div
-      className={cn("w-fit max-w-full mt-5", className)}
+      className={cn("w-fit max-w-full", className)}
       aria-busy={resource.status === "loading"}
     >
       {resource.status === "loading" && (

@@ -29,7 +29,7 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="github" className="relative p-5 sm:p-20 flex flex-col justify-center gap-3">
+    <section id="github" className="relative p-5 pb-20 sm:p-20 flex flex-col justify-center gap-3">
       <h2>FAQ</h2>
 
       <MotionAccordion items={faqItems} />

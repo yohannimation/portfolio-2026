@@ -11,7 +11,7 @@ import { SquareArrowOutUpRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen p-5 sm:p-20 flex flex-col justify-center gap-3">
+    <section id="hero" className="relative min-h-screen p-5 pt-10 sm:p-20 sm:pt-25 flex flex-col justify-center gap-8">
       <h1>Yohann RENAULD</h1>
 
       <div
@@ -23,16 +23,10 @@ export default function HeroSection() {
         "
       >
         <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-center items-center lg:items-end">
-          <div className="text-md">
-            <p>
-              Passionné par l'interaction entre le développement et la créativité visuelle, je poursuis actuellement un Mastère en Ingénierie du Web à L'<Anchor href={"https://esgi.fr"} target="_blank">ESGI <SquareArrowOutUpRight size={18} /></Anchor> de Grenoble, où je combine théorie et pratique pour créer des solutions innovantes.<br/>
-              En parallèle, j'ai la chance de prendre en compétence grâce à mon alternance chez <Anchor href={"https://evolutis.fr"} target="_blank">Evolutis <SquareArrowOutUpRight size={18} /></Anchor>, où je développe des projets e-commerce centrés sur les besoins clients.<br/>
-              Actuellement développeur full-stack, j'aspire me spécialiser dans le front-end pour utiliser des technologies modernes et optimisées.
-            </p>
-            <p>
-              Étant ouvert à toutes opportunités de projet web ou audiovisuel, mon CV et mes informations de contact sont dans le pied de page. 
-            </p>
-          </div>
+          <p className="text-lg">
+            Passionné par l'interaction entre le développement et la créativité visuelle, je poursuis actuellement un Mastère en Ingénierie du Web à L'<Anchor href={"https://esgi.fr"} target="_blank">ESGI <SquareArrowOutUpRight size={18} /></Anchor> de Grenoble, où je combine théorie et pratique pour créer des solutions innovantes.<br/>
+            En parallèle, j'ai la chance de prendre en compétence grâce à mon alternance chez <Anchor href={"https://evolutis.fr"} target="_blank">Evolutis <SquareArrowOutUpRight size={18} /></Anchor>, où je développe des projets e-commerce centrés sur les besoins clients.
+          </p>
 
           <div className="mt-4 w-fit">
             <ElasticButton>Mon CV</ElasticButton>
@@ -60,18 +54,21 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <GithubGraph
-        account="yohannimation"
-        months={12}
-        variant="github"
-        animation="cascade"
-        animationSpeed={1.4}
-        cellSize={20}
-        cellGap={4}
-        cellRadius={6}
-        ambientEffect="none"
-        className="mx-auto"
-      />
+      <div>
+        <h2>GITHUB</h2>
+        <GithubGraph
+          account="yohannimation"
+          months={12}
+          variant="github"
+          animation="cascade"
+          animationSpeed={1.4}
+          cellSize={20}
+          cellGap={4}
+          cellRadius={6}
+          ambientEffect="none"
+          className="mx-auto"
+        />
+      </div>
     </section>
   );
 }

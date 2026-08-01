@@ -165,7 +165,7 @@ export default function CompetencySection() {
     <section
       id="competencies"
       ref={sectionRef}
-      className="relative p-0 py-0 h-[100dvh] bg-primary flex flex-col items-center justify-center z-4 overflow-hidden"
+      className="relative p-0 py-0 h-lvh bg-primary flex flex-col items-center justify-center z-4 overflow-hidden"
     >
       <div ref={wrapperRef} className="w-full h-full">
         <div

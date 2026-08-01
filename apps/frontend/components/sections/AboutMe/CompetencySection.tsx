@@ -119,7 +119,7 @@ export default function CompetencySection() {
   return (
     <section
       id="competencies"
-      className="relative p-5 sm:p-20 w-full h-[100dvh] flex flex-col items-center justify-center bg-background z-4"
+      className="relative p-5 sm:p-20 w-full flex flex-col items-center justify-center bg-background z-4"
     >
       <div
         className="

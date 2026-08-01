@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className="
         relative
         mx-auto
-        min-h-dvh
+        min-h-lvh
         max-w-[1920px]
         flex flex-col
         bg-background/50

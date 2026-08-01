@@ -47,7 +47,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" className="relative h-dvh">
+    <section id="hero" className="relative h-dvh duration-200">
       <div className="relative flex flex-col gap-[5dvh] justify-center w-full h-full px-5 sm:px-20 z-1">
         <FadeContent
           duration={1}
