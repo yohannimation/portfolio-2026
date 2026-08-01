@@ -23,11 +23,13 @@ import { PagesInterface } from "@/types/page.interface"
 interface HeaderDesktopProps {
   pages: PagesInterface[],
   pageKey: string,
-  isScrolled: boolean
+  isScrolled: boolean,
+  scrollToTop: () => void
 }
 interface HeaderMobileProps {
   pages: PagesInterface[],
-  pageKey: string
+  pageKey: string,
+  scrollToTop: () => void
 }
 
 export default function Header() {
@@ -72,21 +74,26 @@ export default function Header() {
     }
   }, [])
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
     <div className="fixed top-0 w-full z-2">
       <header className="relative pt-5 px-5">
-        { !isMobile ? <HeaderDesktop pages={pages} pageKey={pageKey} isScrolled={isScrolled} /> : <HeaderMobile pages={pages} pageKey={pageKey} />}
+        {
+          isMobile ?
+            <HeaderMobile pages={pages} pageKey={pageKey} scrollToTop={scrollToTop} />
+          : 
+            <HeaderDesktop pages={pages} pageKey={pageKey} isScrolled={isScrolled} scrollToTop={scrollToTop} />
+        }
       </header>
     </div>
   )
 }
 
-function HeaderDesktop({ pages, pageKey, isScrolled }: HeaderDesktopProps) {
+function HeaderDesktop({ pages, pageKey, isScrolled, scrollToTop }: HeaderDesktopProps) {
   const width = isScrolled ? "fit-content" : "80vw";
-  
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
 
   const topButtonStyle = isScrolled
     ? "right-0 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.75)]"
@@ -161,6 +168,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled }: HeaderDesktopProps) {
             curve="bezier"
             exponential
             opacity={1}
+            className="hidden md:block"
           />
         )
       }
@@ -168,7 +176,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled }: HeaderDesktopProps) {
   )
 }
 
-function HeaderMobile({ pages, pageKey }: HeaderMobileProps) {
+function HeaderMobile({ pages, pageKey, scrollToTop }: HeaderMobileProps) {
   const [isMobileHeaderOpened, setIsMobileHeaderOpened] = useState(false);
 
   return (
@@ -209,7 +217,7 @@ function HeaderMobile({ pages, pageKey }: HeaderMobileProps) {
               className="
                 fixed top-0 right-0
                 pt-20 px-6
-                h-dvh w-[280px]
+                h-lvh w-[280px]
                 bg-white
                 border border-primary
                 rounded-s-md
@@ -227,7 +235,10 @@ function HeaderMobile({ pages, pageKey }: HeaderMobileProps) {
                       <li key={page.pageKey}>
                         <Anchor
                           href={page.url}
-                          onClick={() => setIsMobileHeaderOpened(false)}
+                          onClick={() => {
+                            setIsMobileHeaderOpened(false)
+                            scrollToTop()
+                          }}
                           className={`
                             after:rounded-[8px]
                             ${page.pageKey === pageKey ? "after:bg-secondary after:inset-[-.125rem_0_0_0]" : ""}
