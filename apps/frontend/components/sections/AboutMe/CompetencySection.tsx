@@ -45,6 +45,7 @@ export default function CompetencySection() {
               {item.competencies
                 .filter((_, i) => i % 2 === rowIdx)
                 .map((competency) => {
+                  // Based on `https://simpleicons.org/`
                   const color = getBrandColor(competency.icon);
 
                   return (
