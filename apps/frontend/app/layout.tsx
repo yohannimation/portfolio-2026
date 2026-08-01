@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${moonGet.variable} ${comfortaa.variable} h-full scroll-smooth antialiased`}
+      className={`${moonGet.variable} ${comfortaa.variable} h-full antialiased`}
     >
       <body className="
         relative

@@ -28,8 +28,7 @@ interface HeaderDesktopProps {
 }
 interface HeaderMobileProps {
   pages: PagesInterface[],
-  pageKey: string,
-  scrollToTop: () => void
+  pageKey: string
 }
 
 export default function Header() {
@@ -83,7 +82,7 @@ export default function Header() {
       <header className="relative pt-5 px-5">
         {
           isMobile ?
-            <HeaderMobile pages={pages} pageKey={pageKey} scrollToTop={scrollToTop} />
+            <HeaderMobile pages={pages} pageKey={pageKey} />
           : 
             <HeaderDesktop pages={pages} pageKey={pageKey} isScrolled={isScrolled} scrollToTop={scrollToTop} />
         }
@@ -176,7 +175,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled, scrollToTop }: HeaderDeskto
   )
 }
 
-function HeaderMobile({ pages, pageKey, scrollToTop }: HeaderMobileProps) {
+function HeaderMobile({ pages, pageKey }: HeaderMobileProps) {
   const [isMobileHeaderOpened, setIsMobileHeaderOpened] = useState(false);
 
   return (
@@ -235,10 +234,7 @@ function HeaderMobile({ pages, pageKey, scrollToTop }: HeaderMobileProps) {
                       <li key={page.pageKey}>
                         <Anchor
                           href={page.url}
-                          onClick={() => {
-                            setIsMobileHeaderOpened(false)
-                            scrollToTop()
-                          }}
+                          onClick={() => setIsMobileHeaderOpened(false)}
                           className={`
                             after:rounded-[8px]
                             ${page.pageKey === pageKey ? "after:bg-secondary after:inset-[-.125rem_0_0_0]" : ""}
