@@ -7,24 +7,29 @@ import { MotionAccordion } from "@/components/unlumen-ui/motion-faqs-accordion";
 export default function FaqSection() {
   const faqItems = [
     {
-      question: "Ai-je toutes les compétences ?",
+      question: <>Je suis Full-Stack ou Front-End ?</>,
       answer:
-        "Si je ne les ai pas, je les aurais forcement. Curieux, j'apprends rapidement et je m'adapte aux différents projets.",
+        <>Mon expérience en alternance s'est déroulé en tant que développeur Full-Stack, j'ai les compétences aussi bien en Front qu'en Back.<br/>Cependant, j'aspire vraiment à me spécialiser dans le domaine du Front-End</>,
     },
     {
-      question: "Mon travail est de qualité ?",
+      question: <>Ai-je toutes les compétences ?</>,
       answer:
-        "De part mon expérience en entreprise et grâce aux outils moderne (tel que l'IA), je travaille efficacement tout en pretant une grande attention à la qualité du code que j'apporte.",
+        <>Si je ne les ai pas, je les aurais forcement. Curieux, j'apprends rapidement et je m'adapte aux différents projets.</>,
+    },
+    {
+      question: <>Mon travail est de qualité ?</>,
+      answer:
+        <>De part mon expérience en entreprise et grâce aux outils moderne (tel que l'IA), je travaille efficacement tout en pretant une grande attention à la qualité du code que j'apporte.</>,
     },
     {
       question: <>Je push vraiment les <code>.env</code> ?</>,
       answer:
-        "Non, fort heureusement.",
+        <>Non, fort heureusement.</>,
     },
     {
-      question: "Je ne réponds pas à toutes vos questions ?",
+      question: <>Je ne réponds pas à toutes vos questions ?</>,
       answer:
-        "N'hésitez pas à me les poser via mes différents moyen de contact dans le footer.",
+        <>N'hésitez pas à me les poser via mes différents moyen de contact dans le footer.</>,
     },
   ];
 
