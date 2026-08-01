@@ -1,4 +1,6 @@
 "use client";
+
+import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 
 // UI components
@@ -75,7 +77,13 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div>Mascotte qui regarde à gauche</div>
+        <Image
+          src={"/images/looked-up-mascot.svg"}
+          width={200}
+          height={112}
+          alt="Looked up mascotte"
+          className="-mb-5 mx-auto sm:mx-[unset] sm:-mb-8"
+        />
       </footer>
     </>
   );

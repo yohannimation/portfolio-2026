@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import localFont from 'next/font/local'
 
+import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 
 import "./globals.css";
@@ -29,17 +30,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${moonGet.variable} ${comfortaa.variable} h-full scroll-smooth antialiased`}
+      className={`${moonGet.variable} ${comfortaa.variable} h-full antialiased`}
     >
       <body className="
         relative
         mx-auto
-        min-h-dvh
+        min-h-lvh
         max-w-[1920px]
         flex flex-col
         bg-background/50
         shadow-[0_0_50px_rgba(56,132,35,0.15),0_0_20px_rgba(56,132,35,0.2),0_0_15px_rgba(56,132,35,0.3)]
       ">
+        <Header />
         <main className="relative bg-background min-h-screen z-1">
           {children}
         </main>

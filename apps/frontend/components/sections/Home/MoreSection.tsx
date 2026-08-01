@@ -21,7 +21,7 @@ export default function MoreSection() {
           variant={"secondary"} 
           size={"xxl"}
         >
-          <Link href="/about">
+          <Link href="/about-me">
             Moi même
           </Link>
         </Button>

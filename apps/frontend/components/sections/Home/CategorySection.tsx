@@ -49,13 +49,13 @@ export default function CategorySection({ categories }: { categories: CategoryIn
       ref={sectionRef}
       className="
         relative
-        px-4 py-6
+        px-4 py-10
         sm:p-20
         flex
         items-center
         justify-end
         flex-col
-        min-h-[75dvh]
+        min-h-[75lvh]
         text-white
         bg-primary
         z-2
@@ -74,7 +74,7 @@ export default function CategorySection({ categories }: { categories: CategoryIn
         >
           <div className="flex-1">
             <h2>CATEGORIES</h2>
-            <p className="text-xl">
+            <p className="text-lg">
               Du développement web à la création audiovisuelle, chaque projet est l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
               compétences.
               <br />

@@ -17,8 +17,6 @@ export default function ProfileSection() {
   const contentRef = useRef(null);
 
   useGSAP(() => {
-    const borderRadius = window.innerWidth < 640 ? "0.75rem" : "3rem";
-
     gsap.set(contentRef.current, { opacity: 0 });
 
     const tl = gsap.timeline({
@@ -59,8 +57,8 @@ export default function ProfileSection() {
     .to(bgRef.current, {
       width: "100%",
       height: "100%",
-      borderTopLeftRadius: borderRadius,
-      borderTopRightRadius: borderRadius,
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0,
       duration: 0.7,
@@ -92,15 +90,15 @@ export default function ProfileSection() {
           gap-8
           px-4 py-6 sm:p-20
           sm:p-20
-          h-dvh
+          h-lvh
           rounded-t-sm sm:rounded-t-5xl
           z-5
         "
       >
-        <div className="col-span-full lg:col-span-1 xl:col-span-2 flex flex-col justify-center items-center lg:items-end z-5">
+        <div className="flex flex-col justify-center items-center lg:items-end col-span-full lg:col-span-1 xl:col-span-2 z-5">
           <div>
             <h1>Yohann RENAULD</h1>
-            <p className="text-xl">
+            <p className="text-lg">
               Développeur web passionné par les interfaces modernes et la
               création visuelle, je construis mon expérience depuis plusieurs
               années à travers l'alternance et des projets personnels. Dans la
@@ -116,7 +114,7 @@ export default function ProfileSection() {
             <ElasticButton anchor="/about-me">Mieux me connaître</ElasticButton>
           </div>
         </div>
-        <div className="col-span-full lg:col-span-1 xl:col-span-1 flex justify-center items-center">
+        <div className="hidden lg:flex justify-center items-center lg:col-span-1 xl:col-span-1">
           <TiltedCard
             imageSrc={
               "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"

@@ -1,0 +1,18 @@
+[
+    {
+        "name": "VTT",
+        "image": "aboutme-mtb.jpg"
+    },
+    {
+        "name": "Randonnées",
+        "image": "aboutme-hike.jpg"
+    },
+    {
+        "name": "Automobile",
+        "image": "aboutme-car.jpg"
+    },
+    {
+        "name": "Photographie",
+        "image": "aboutme-photo.jpg"
+    }
+]

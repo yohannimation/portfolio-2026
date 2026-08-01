@@ -122,6 +122,10 @@
             {
                 "name": "Prime React",
                 "icon": "primereact"
+            },
+            {
+                "name": "GSAP",
+                "icon": "gsap"
             }
         ]
     },

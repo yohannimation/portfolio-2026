@@ -1,7 +1,9 @@
+// Section components
+import HeroSection from "@/components/sections/Category/HeroSection";
+import ProjectSection from "@/components/sections/Category/ProjectSection";
 
-// Types
-import type { CategoryInterface } from "@/types/category.interface"
-import type { ProjectInterface } from "@/types/project.interface"
+// Services
+import { categoryService } from "@/services/category.service";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -14,10 +16,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const [id, ...slugParts] = identifier.split("-");
   const slug = slugParts.join("-");
 
+  const category = await categoryService.getCategoryById(id);
+  const projects = category.projects;
+  
   return (
-    <div>
-      <p>ID : {id}</p>
-      <p>Slug : {slug}</p>
+    <div className="px-4 py-6 md:px-20">
+      <HeroSection category={category} />
+      { projects && <ProjectSection projects={projects} /> }
     </div>
   );
 }
