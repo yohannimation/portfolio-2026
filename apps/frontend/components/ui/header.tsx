@@ -113,7 +113,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled, scrollToTop }: HeaderDeskto
           hidden md:block
           mx-auto px-6
           relative
-          h-full
+          w-[80vw] h-full
           bg-white
           rounded-md
           border border-primary
