@@ -1,6 +1,6 @@
-import {getRequestConfig} from 'next-intl/server';
-import {routing} from './routing';
-import {headers} from 'next/headers';
+import { getRequestConfig } from 'next-intl/server';
+import { routing } from './routing';
+import { headers } from 'next/headers';
 
 type Locale = (typeof routing.locales)[number];
 
@@ -24,7 +24,8 @@ export default getRequestConfig(async (config) => {
     activeLocale = localeFromHeader as Locale;
   }
 
-  console.log(`[i18n-request] Config locale: ${locale}, Header locale: ${localeFromHeader}, Chosen: ${activeLocale}`);
+  // DEBUG
+  // console.log(`[i18n-request] Config locale: ${locale}, Header locale: ${localeFromHeader}, Chosen: ${activeLocale}`);
 
   return {
     locale: activeLocale,
