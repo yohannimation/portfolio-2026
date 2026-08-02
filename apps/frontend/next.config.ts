@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 type RemotePattern = NonNullable<NextConfig["images"]>["remotePatterns"] extends
   (infer P)[] | undefined ? P : never;
@@ -35,4 +36,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

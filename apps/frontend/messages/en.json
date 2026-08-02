@@ -1,0 +1,17 @@
+{
+  "Header": {
+    "home": "Home",
+    "development": "Web development",
+    "audiovisual": "Audiovisual",
+    "about": "About me"
+  },
+  "HomePage": {
+    "HeroSection": {
+      "openToWork": "Open to work",
+      "title": "FRONTEND DEVELOPER",
+      "description1": "Front-End Developer passionate about user experience.",
+      "description2": "I imagine and develop high-performance interfaces, while exploring visual creation and animation.",
+      "cta": "Categories"
+    }
+  }
+}

@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
+// Translation
+import { useTranslations } from 'next-intl';
+
 // UI components
 import Anchor from "@/components/ui/anchor"
 import { Button } from "@/components/ui/button"
@@ -32,28 +35,30 @@ interface HeaderMobileProps {
 }
 
 export default function Header() {
+  const t = useTranslations('Header');
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const pageKey = getPageKey(usePathname());
   const pages: PagesInterface[] = [
     {
-      "name": <>Accueil</>,
+      "name": <>{t('home')}</>,
       "url": "/",
       "pageKey": "home"
     },
     {
-      "name": <>Développement&nbsp;web</>,
+      "name": <>{t('development')}</>,
       "url": "/category/1-web",
       "pageKey": "web"
     },
     {
-      "name": <>Audiovisuel</>,
+      "name": <>{t('audiovisual')}</>,
       "url": "/category/2-audiovisual",
       "pageKey": "audiovisual"
     },
     {
-      "name": <>About&nbsp;me</>,
+      "name": <>{t('about')}</>,
       "url": "/about-me",
       "pageKey": "about-me"
     },

@@ -3,6 +3,9 @@
 import { useLayoutEffect, useRef } from 'react';
 import Image from 'next/image';
 
+// Translation
+import { useTranslations } from 'next-intl';
+
 // Decorative components
 import dynamic from 'next/dynamic';
 const HeroBackground = dynamic(() => import('@/components/decorative/HeroBackground'), {
@@ -27,6 +30,8 @@ gsap.registerPlugin(ScrollTrigger);
 import { ArrowDown, Briefcase } from "lucide-react";
 
 export default function HeroSection() {
+  const t = useTranslations('HomePage.HeroSection');
+
   const scrollVelocityRef = useRef(null);
   const blurRef = useRef(null);
   const date = new Date();
@@ -62,7 +67,7 @@ export default function HeroSection() {
             </p>
             <Badge variant="outline" className="relative mt-1 overflow-visible">
               <Briefcase data-icon="inline-start" />
-              Open to work
+              {t('openToWork')}
               <span className="absolute inset-x-[35] inset-y-[3] block bg-primary -z-1 rounded-full animate-ping"></span>
             </Badge>
           </div>
@@ -70,7 +75,7 @@ export default function HeroSection() {
 
         <SplitText
           tag="h1"
-          text="DEVELOPPEUR FRONTEND"
+          text={t('title')}
           delay={50}
           duration={1.2}
           ease="elastic.out(1,0.3)"
@@ -93,7 +98,7 @@ export default function HeroSection() {
                   backdrop-blur-xs
                 "
               >
-                Développeur Front-End passionné par l'expérience utilisateur.
+                {t('description1')}
               </span>
               <br />
               <span className="
@@ -104,14 +109,14 @@ export default function HeroSection() {
                   backdrop-blur-xs
                 "
               >
-                J'imagine et développe des interfaces performantes, tout en explorant la création visuelle et l'animation.
+                {t('description2')}
               </span>
             </p>
             <ElasticButton
               onClick={() => { document.getElementById("category")?.scrollIntoView(); }}
             >
               <ArrowDown className="size-5 mt-1 animate-bounce" />
-              Catégories
+              {t('cta')}
             </ElasticButton>
           </div>
         </FadeContent>
