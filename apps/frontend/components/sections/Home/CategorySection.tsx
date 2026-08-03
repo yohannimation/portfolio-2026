@@ -1,6 +1,11 @@
 "use client";
 
 import { useRef } from "react";
+
+// Translation
+import { useTranslations } from 'next-intl';
+
+// GSAP
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +26,8 @@ interface CategoryItem {
 }
 
 export default function CategorySection({ categories }: { categories: CategoryInterface[] }) {
+  const t = useTranslations('HomePage.CategorySection');
+
   const sectionRef = useRef<HTMLElement>(null);
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -73,12 +80,11 @@ export default function CategorySection({ categories }: { categories: CategoryIn
           "
         >
           <div className="flex-1">
-            <h2>CATEGORIES</h2>
+            <h2>{t('title')}</h2>
             <p className="text-lg">
-              Du développement web à la création audiovisuelle, chaque projet est l{"'"}occasion d{"'"}explorer de nouvelles idées et de perfectionner mes
-              compétences.
-              <br />
-              Parcourez mes réalisations et découvrez les univers qui m{"'"}inspirent à travers ces catégories.
+              {t.rich('description', {
+                br: () => <br />
+              })}
             </p>
           </div>
 
@@ -98,7 +104,7 @@ export default function CategorySection({ categories }: { categories: CategoryIn
             from={0}
             to={totalProjects}
             separator=" "
-          /> PROJETS
+          /> {t('projectCount')}
         </p>
       </div>
     </section>

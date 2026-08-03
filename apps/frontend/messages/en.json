@@ -12,6 +12,37 @@
       "description1": "Front-End Developer passionate about user experience.",
       "description2": "I imagine and develop high-performance interfaces, while exploring visual creation and animation.",
       "cta": "Categories"
+    },
+    "CategorySection": {
+      "title": "CATEGORIES",
+      "description": "From web development to audiovisual creation, every project is a chance to explore new ideas and refine my skills.<br></br>Browse my work and discover the worlds that inspire me through these categories.",
+      "projectCount": "PROJECTS"
+    },
+    "ProfileSection": {
+      "description": "Passionate about modern interfaces and visual creation, I've been building my experience for several years through work-study programs and personal projects. Following my professional background and my training in Web Engineering, I'm currently <underline>looking</underline> for a <underline>permanent contract</underline> to further develop my skills and experience.",
+      "cta": "Get to know me better",
+      "TiltedCard": {
+        "alt": "Picture of Yohann",
+        "caption": "It's me :)"
+      }
+    },
+    "CompetencySection": {
+      "title": "COMPETENCIES"
+    },
+    "MoreSection": {
+      "title": "SEE MORE",
+      "cta1": "Myself",
+      "cta2": "My projects"
+    }
+  },
+  "CategoryPage": {
+    "ProjectHeader": {
+      "comingSoon": "Coming soon"
+    },
+    "ProjectMiniature": {
+      "discover": "Discover",
+      "play": "Play",
+      "comingSoon": "Coming soon"
     }
   }
 }

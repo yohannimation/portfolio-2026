@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 
+// Translation
+import { useTranslations } from 'next-intl';
+
 // UI components
 import { Button } from "@/components/ui/button";
 
 export default function MoreSection() {
+  const t = useTranslations('HomePage.MoreSection');
+
   return (
     <section
       id="why-me"
@@ -14,7 +19,7 @@ export default function MoreSection() {
         px-4 py-6 sm:p-20
       "
     >
-      <h2 className="text-white text-center color-white">EN VOIR PLUS</h2>
+      <h2 className="text-white text-center color-white">{t("title")}</h2>
       <div className="flex justify-center gap-5">
         <Button
           asChild
@@ -22,7 +27,7 @@ export default function MoreSection() {
           size={"xxl"}
         >
           <Link href="/about-me">
-            Moi même
+            {t("cta1")}
           </Link>
         </Button>
         <Button
@@ -30,7 +35,7 @@ export default function MoreSection() {
           size={"xxl"}
           onClick={() => { document.getElementById("category")?.scrollIntoView(); }}
         >
-          Mes projets
+          {t("cta2")}
         </Button>
       </div>
     </section>

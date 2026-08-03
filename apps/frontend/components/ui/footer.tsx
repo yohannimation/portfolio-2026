@@ -81,7 +81,7 @@ export default function Footer() {
           src={"/images/looked-up-mascot.svg"}
           width={200}
           height={112}
-          alt="Looked up mascotte"
+          alt="Looked up mascot"
           className="-mb-5 mx-auto sm:mx-[unset] sm:-mb-8"
         />
       </footer>

@@ -1,5 +1,8 @@
 "use client";
 
+// Translation
+import { useTranslations } from 'next-intl';
+
 // UI components
 import {
   Accordion,
@@ -41,6 +44,8 @@ interface competenciesInterface {
 }
 
 export default function CompetencySection() {
+  const t = useTranslations('HomePage.CompetencySection');
+
   const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -173,8 +178,6 @@ export default function CompetencySection() {
           className="w-full h-full p-5 sm:p-20 bg-background rounded-xl sm:rounded-4xl"
         >
           <div
-            // container="competencies"
-            // delay={0.2}
             ref={contentRef}
             className="
               flex
@@ -184,7 +187,7 @@ export default function CompetencySection() {
               h-full
             "
           >
-            <h2>COMPETENCES</h2>
+            <h2>{t("title")}</h2>
             <div className="relative">
               <Accordion type="single" collapsible defaultValue="frontend" className="block lg:hidden">
                 {accordionItemsMobile.map((accordion) => (

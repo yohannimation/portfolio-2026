@@ -12,6 +12,37 @@
       "description1": "Développeur Front-End passionné par l'expérience utilisateur.",
       "description2": "J'imagine et développe des interfaces performantes, tout en explorant la création visuelle et l'animation.",
       "cta": "Catégories"
+    },
+    "CategorySection": {
+      "title": "CATÉGORIES",
+      "description": "Du développement web à la création audiovisuelle, chaque projet est l'occasion d'explorer de nouvelles idées et de perfectionner mes compétences.<br></br>Parcourez mes réalisations et découvrez les univers qui m'inspirent à travers ces catégories.",
+      "projectCount": "PROJETS"
+    },
+    "ProfileSection": {
+      "description": "Développeur web passionné par les interfaces modernes et la création visuelle, je construis mon expérience depuis plusieurs années à travers l'alternance et des projets personnels. Dans la continuité de mon parcours professionnel et suite à ma formation dans l'Ingénierie du Web, je suis en <underline>recherche</underline> d'un <underline>contrat à durée indéterminé</underline> afin d'accroitre mes connaissances et mon expérience.",
+      "cta": "Mieux me connaître",
+      "TiltedCard": {
+        "alt": "Photo de Yohann",
+        "caption": "C'est moi :)"
+      }
+    },
+    "CompetencySection": {
+      "title": "COMPÉTENCES"
+    },
+    "MoreSection": {
+      "title": "EN VOIR PLUS",
+      "cta1": "Moi même",
+      "cta2": "Mes projets"
+    }
+  },
+  "CategoryPage": {
+    "ProjectHeader": {
+      "comingSoon": "À venir"
+    },
+    "ProjectMiniature": {
+      "discover": "Découvrir",
+      "play": "Regarder",
+      "comingSoon": "À venir"
     }
   }
 }

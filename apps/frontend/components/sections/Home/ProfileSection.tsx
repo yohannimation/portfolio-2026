@@ -1,5 +1,8 @@
 "use client";
 
+// Translation
+import { useTranslations } from 'next-intl';
+
 // UI components
 import ElasticButton from "@/components/ui/elasticButton";
 import TiltedCard from "@/components/TiltedCard";
@@ -12,6 +15,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProfileSection() {
+  const t = useTranslations('HomePage.ProfileSection');
+
   const sectionRef = useRef(null);
   const bgRef = useRef(null);
   const contentRef = useRef(null);
@@ -99,19 +104,14 @@ export default function ProfileSection() {
           <div>
             <h1>Yohann RENAULD</h1>
             <p className="text-lg">
-              Développeur web passionné par les interfaces modernes et la
-              création visuelle, je construis mon expérience depuis plusieurs
-              années à travers l'alternance et des projets personnels. Dans la
-              continuité de mon parcours professionnel et suite à ma formation
-              dans l'Ingénierie du Web, je suis en{" "}
-              <span className="underline">recherche</span> d'un{" "}
-              <span className="underline">contrat à durée indéterminé</span>{" "}
-              afin d'accroitre mes connaissances et mon expérience.
+              {t.rich('description', {
+                underline: (chunks) => <span className='underline'>{chunks}</span>
+              })}
             </p>
           </div>
 
           <div className="mt-4 w-fit">
-            <ElasticButton anchor="/about-me">Mieux me connaître</ElasticButton>
+            <ElasticButton anchor="/about-me">{t("cta")}</ElasticButton>
           </div>
         </div>
         <div className="hidden lg:flex justify-center items-center lg:col-span-1 xl:col-span-1">
@@ -119,8 +119,8 @@ export default function ProfileSection() {
             imageSrc={
               "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
             }
-            altText="Photo de Yohann"
-            captionText="C'est moi :)"
+            altText={t("TiltedCard.alt")}
+            captionText={t("TiltedCard.caption")}
             scaleOnHover={1.05}
             containerWidth={"fit-content"}
             containerHeight={"fit-content"}

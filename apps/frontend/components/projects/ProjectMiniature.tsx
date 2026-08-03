@@ -2,6 +2,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Translation
+import { useTranslations } from "next-intl";
+
 // Components
 import { Badge } from "@/components/ui/badge";
 import { Backlight } from "@/components/ui/backlight";
@@ -33,6 +36,7 @@ export default function ProjectMiniature({
   tags,
   isOdd
 }: ProjectMiniatureInterface) {
+  const t = useTranslations("CategoryPage.ProjectMiniature")
   const [miniatureLoaded, setMiniatureLoaded] = useState<boolean>(false)
   const [videoPlayerOpen, setVideoPlayerOpen] = useState<boolean>(false)
 
@@ -93,7 +97,7 @@ export default function ProjectMiniature({
             className={ctaClass}
           >
             <Link href={source} target="_blank">
-              Découvrir <SquareArrowOutUpRight />
+              {t("discover")} <SquareArrowOutUpRight />
             </Link>
           </Button>
       }
@@ -108,7 +112,7 @@ export default function ProjectMiniature({
               className={ctaClass}
               onClick={() => setVideoPlayerOpen(true)}
             >
-              Regarder <Play />
+              {t("play")} <Play />
             </Button>
           </>
       }
@@ -149,7 +153,7 @@ export default function ProjectMiniature({
                     {ctaContent}
                   </>
                 :
-                  <Badge variant="outline" className={ctaClass}><Clock /> Coming soon</Badge>
+                  <Badge variant="outline" className={ctaClass}><Clock /> {t("comingSoon")}</Badge>
               }
             </div>
         }
