@@ -3,6 +3,11 @@
 import * as React from "react";
 import { motion } from "motion/react";
 
+// GSAP
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 import { cn } from "@/lib/utils";
 
 export interface MotionAccordionItem {
@@ -155,11 +160,34 @@ export function MotionAccordion({
 
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  React.useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
+    const elements = containerRef.current.children;
+    if (elements.length === 0) return;
+
+    gsap.set(elements, { opacity: 0, x: -100 });
+
+    gsap.to(elements, {
+      opacity: 1,
+      x: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "elastic.out(1,0.65)",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 60%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="flex flex-col rounded-xl" style={{ gap }}>
+      <div ref={containerRef} className="flex flex-col rounded-xl" style={{ gap }}>
         {items.map((item, i) => (
           <AccordionItem
             key={i}
