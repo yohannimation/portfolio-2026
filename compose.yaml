@@ -27,6 +27,7 @@ services:
     container_name: portfolio-backend
     volumes:
       - ./apps/backend:/var/www/html
+      - /var/www/html/vendor
     environment:
       APP_ENV: ${APP_ENV:-dev}
       APP_SECRET: ${APP_SECRET}
