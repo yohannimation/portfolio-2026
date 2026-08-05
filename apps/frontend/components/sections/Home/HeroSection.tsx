@@ -108,7 +108,7 @@ export default function HeroSection() {
               </span>
             </p>
             <ElasticButton
-              onClick={() => { document.getElementById("category")?.scrollIntoView(); }}
+              onClick={() => { document.getElementById("category")?.scrollIntoView({ behavior: "smooth" }); }}
             >
               <ArrowDown className="size-5 mt-1 animate-bounce" />
               Catégories

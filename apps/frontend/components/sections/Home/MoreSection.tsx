@@ -28,7 +28,7 @@ export default function MoreSection() {
         <Button
           variant={"outline"}
           size={"xxl"}
-          onClick={() => { document.getElementById("category")?.scrollIntoView(); }}
+          onClick={() => { document.getElementById("category")?.scrollIntoView({ behavior: "smooth" }); }}
         >
           Mes projets
         </Button>

@@ -53,7 +53,7 @@ export default function Header() {
       "pageKey": "audiovisual"
     },
     {
-      "name": <>About&nbsp;me</>,
+      "name": <>À&nbsp;propos</>,
       "url": "/about-me",
       "pageKey": "about-me"
     },
