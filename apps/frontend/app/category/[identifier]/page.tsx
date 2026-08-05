@@ -5,10 +5,51 @@ import ProjectSection from "@/components/sections/Category/ProjectSection";
 // Services
 import { categoryService } from "@/services/category.service";
 
+// Types
+import type { Metadata } from "next";
+
 interface CategoryPageProps {
   params: Promise<{
     identifier: string;
   }>
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { identifier } = await params;
+  const [ id ] = identifier.split("-");
+
+  try {
+    const category = await categoryService.getCategoryById(id);
+
+    return {
+      title: `${category.name}`,
+      description: `${category.description}.`,
+      category: `${category.name}`,
+      alternates: {
+        canonical: `https://yohannimation.fr/category/${category.id}-${category.slug}`
+      },
+      keywords: [
+        "développement web", "web development", "audiovisuel", "audiovisual", "projets", "projects", "yohann renauld", 
+        ...(category.projects?.map((project) => project.name) ?? []),
+      ],
+      openGraph: {
+        title: `${category.name}`,
+        description: `${category.description}.`,
+        siteName: "Yohannimation portfolio",
+        locale: "fr",
+        url: `https://yohannimation.fr/category/${category.id}-${category.slug}`,
+        countryName: "France"
+      },
+      robots: {
+        index: true,
+        follow: true,
+      },
+    };
+  } catch (error) {
+    return {
+      title: `Catégorie ${identifier}`,
+    };
+  }
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

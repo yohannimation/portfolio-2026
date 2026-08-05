@@ -1,3 +1,25 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mentions légales",
+  description: "Mentions légales du site Yohannimation.",
+  alternates: {
+    canonical: `https://yohannimation.fr/legal-notices`
+  },
+  openGraph: {
+    title: "Mentions légales",
+    description: "Mentions légales du site Yohannimation.",
+    siteName: "Yohannimation portfolio",
+    locale: "fr",
+    url: `https://yohannimation.fr/legal-notices`,
+    countryName: "France"
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default async function LegalNotice() {
   return (
     <div className="p-5 pt-10 sm:p-20 sm:pt-25 flex flex-col gap-5">

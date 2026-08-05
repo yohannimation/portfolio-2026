@@ -3,6 +3,14 @@ import Image from "next/image";
 // UI components
 import ElasticButton from "@/components/ui/elasticButton";
 
+// Types
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "404",
+  description: ""
+};
+
 export default function NotFound() {
   return (
     <div className="px-5 py-20 flex justify-center items-center flex-col lg:flex-row gap-10 lg:gap-15 xl:gap-30 h-dvh">
