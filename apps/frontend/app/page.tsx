@@ -8,6 +8,8 @@ import ProfileSection from "@/components/sections/Home/ProfileSection";
 // Services
 import { categoryService } from "@/services/category.service";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const categories = await categoryService.getCategories();
 
