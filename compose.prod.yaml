@@ -57,13 +57,14 @@ services:
       - portfolio-network
 
   nginx:
-    image: nginx:1.27-alpine
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.prod
     container_name: portfolio-nginx-prod
     # restart: always
     ports:
       - "${NGINX_PORT:-80}:80"
     volumes:
-      - ./nginx/default.prod.conf:/etc/nginx/conf.d/default.conf:ro
       - ./apps/backend/public:/var/www/html/public:ro
     depends_on:
       - frontend
