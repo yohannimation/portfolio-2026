@@ -50,6 +50,9 @@ COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 # Copy optimized application from builder
 COPY --from=builder /var/www/html /var/www/html
 
+# Create an empty .env file to prevent Symfony Dotenv from crashing in prod
+RUN touch /var/www/html/.env
+
 # Set production permissions
 RUN mkdir -p /var/www/html/var /var/www/html/public && chown -R www-data:www-data /var/www/html/var /var/www/html/public
 RUN chmod +x /var/www/html/docker-entrypoint.prod.sh
