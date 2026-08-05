@@ -71,10 +71,14 @@ services:
       - backend
     networks:
       - portfolio-network
+      - npm
 
 networks:
   portfolio-network:
     driver: bridge
+  npm:
+    external: true
+    name: nginx-proxy-manager-stack_default
 
 volumes:
   mysql-data-prod:
