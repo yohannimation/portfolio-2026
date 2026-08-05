@@ -129,7 +129,7 @@ export default function HeroSection() {
           backdropFilter: "blur(var(--blur-amount))",
           maskImage: "radial-gradient(ellipse var(--mask-radius-x) var(--mask-radius-y) at 50% 100%, black var(--mask-radius), transparent var(--mask-radius-edge))",
           WebkitMaskImage: "radial-gradient(ellipse var(--mask-radius-x) var(--mask-radius-y) at 50% 100%, black var(--mask-radius), transparent var(--mask-radius-edge))",
-        }}
+        } as any }
       />
 
       <div ref={scrollVelocityRef} className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary overflow-hidden'>
