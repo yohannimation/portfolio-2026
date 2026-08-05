@@ -14,5 +14,8 @@ if [ -d "migrations" ]; then
     php bin/console doctrine:migrations:migrate --no-interaction
 fi
 
+echo ">> Fixing permissions..."
+chown -R www-data:www-data /var/www/html/var
+
 echo ">> Starting PHP-FPM..."
 exec php-fpm
