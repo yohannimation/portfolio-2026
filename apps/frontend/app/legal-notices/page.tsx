@@ -68,6 +68,20 @@ export default async function LegalNotice() {
           Vous pouvez bloquer les cookies en configurant votre navigateur. 
         </p>
       </div>
+
+      <div>
+        <h2 className="uppercase">Liens hypertextes</h2>
+        <p>
+          Ce site peut contenir des liens vers des sites tiers. Yohann RENAULD (Yohannimation) n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
+        </p>
+      </div>
+
+      <div>
+        <h2 className="uppercase">Droit applicable</h2>
+        <p>
+          Le présent site est soumis au droit français. En cas de litige, le tribunal de Grenoble sera seul compétent.
+        </p>
+      </div>
     </div>
   );
 }
