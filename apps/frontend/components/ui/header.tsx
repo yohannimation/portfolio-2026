@@ -53,7 +53,7 @@ export default function Header() {
       "pageKey": "audiovisual"
     },
     {
-      "name": <>About&nbsp;me</>,
+      "name": <>À&nbsp;propos</>,
       "url": "/about-me",
       "pageKey": "about-me"
     },
@@ -113,7 +113,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled, scrollToTop }: HeaderDeskto
           hidden md:block
           mx-auto px-6
           relative
-          h-full
+          w-[80vw] h-full
           bg-white
           rounded-md
           border border-primary

@@ -137,7 +137,7 @@ h3, .h3
 }
 
 h1.hero {
-  font-size: clamp(2.1875rem, 8vw, 8rem);
+  font-size: clamp(2rem, 8vw, 8rem);
 }
 
 h1, .h1

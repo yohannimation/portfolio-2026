@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion, useInView } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -300,6 +300,8 @@ export function GithubGraph({
   className,
 }: GithubGraphProps) {
   const reducedMotion = useReducedMotion();
+  const containerRef = React.useRef(null);
+  const isInView = useInView(containerRef, { once: true });
   const normalizedAccount = React.useMemo(
     () => normalizeGithubAccount(account),
     [account],
@@ -410,6 +412,7 @@ export function GithubGraph({
 
   return (
     <div
+      ref={containerRef}
       className={cn("w-fit max-w-full", className)}
       aria-busy={resource.status === "loading"}
     >
@@ -485,7 +488,9 @@ export function GithubGraph({
                           ? false
                           : { opacity: 0, scale: 0.35, y: 4 }
                       }
-                      animate={{ opacity: 1, scale: 1, y: 0, filter }}
+                      animate={(isInView || reducedMotion)
+                        ? { opacity: 1, scale: 1, y: 0, filter }
+                        : { opacity: 0, scale: 0.35, y: 4 }}
                       transition={{
                         opacity: { duration: 0.14, delay: entranceDelay },
                         y: {
