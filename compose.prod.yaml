@@ -46,11 +46,11 @@ services:
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
         NEXT_SERVER_HOST: ${NEXT_SERVER_HOST}
-
     container_name: portfolio-frontend-prod
     # restart: always
     environment:
       NODE_ENV: production
+      PORT: 3010
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
       NEXT_SERVER_HOST: ${NEXT_SERVER_HOST}
     networks:
