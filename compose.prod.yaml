@@ -36,6 +36,8 @@ services:
         condition: service_healthy
     networks:
       - portfolio-network
+    volumes:
+      - ./apps/backend/public:/var/www/html/public
 
   frontend:
     build:
