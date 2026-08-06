@@ -29,7 +29,7 @@ services:
     environment:
       APP_ENV: prod
       APP_SECRET: ${APP_SECRET}
-      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}?serverVersion=8.0&charset=utf8mb4
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@portfolio-2026-mysql:3306/${MYSQL_DATABASE}?serverVersion=8.0&charset=utf8mb4
       MESSENGER_TRANSPORT_DSN: ${MESSENGER_TRANSPORT_DSN}
     depends_on:
       portfolio-2026-mysql:
