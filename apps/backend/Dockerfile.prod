@@ -1,4 +1,12 @@
-# Stage 1: Builder
+# Stage 1: Asset Builder
+FROM node:20-alpine AS asset-builder
+WORKDIR /app
+COPY package.json package-lock.json* yarn.lock* ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: PHP Builder
 FROM php:8.3-fpm-alpine AS builder
 
 # Install build-time dependencies
@@ -24,7 +32,7 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --no-script
 COPY . .
 RUN composer dump-autoload --optimize --no-dev
 
-# Stage 2: Final
+# Stage 3: Final
 FROM php:8.3-fpm-alpine
 
 # Install only runtime dependencies
@@ -32,14 +40,6 @@ RUN apk add --no-cache \
         icu-libs \
         libzip \
         bash
-
-# Remove the redundant extension installation in the final stage.
-# The extensions are already compiled and present in the image
-# if we copy the whole folder from builder, BUT actually
-# docker-php-ext-install compiles them into the PHP binary/extensions dir.
-# Since we are using the same base image, and we want to avoid
-# installing build-deps (gcc, etc) in the final image,
-# we should copy the compiled extensions from the builder stage.
 
 WORKDIR /var/www/html
 
@@ -49,6 +49,8 @@ COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
 # Copy optimized application from builder
 COPY --from=builder /var/www/html /var/www/html
+# Copy built assets from asset-builder
+COPY --from=asset-builder /app/public/build /var/www/html/public/build
 
 # Create an empty .env file to prevent Symfony Dotenv from crashing in prod
 RUN touch /var/www/html/.env
