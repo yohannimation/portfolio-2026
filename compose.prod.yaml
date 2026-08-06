@@ -1,5 +1,5 @@
 services:
-  mysql:
+  portfolio-2026-mysql:
     image: mysql:8.0
     container_name: portfolio-mysql-prod
     # restart: always
@@ -18,9 +18,9 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - portfolio-network
+      - portfolio-2026-network
 
-  backend:
+  portfolio-2026-backend:
     build:
       context: ./apps/backend
       dockerfile: Dockerfile.prod
@@ -35,11 +35,11 @@ services:
       mysql:
         condition: service_healthy
     networks:
-      - portfolio-network
+      - portfolio-2026-network
     volumes:
       - ./apps/backend/public:/var/www/html/public
 
-  frontend:
+  portfolio-2026-frontend:
     build:
       context: ./apps/frontend
       dockerfile: Dockerfile.prod
@@ -50,13 +50,13 @@ services:
     # restart: always
     environment:
       NODE_ENV: production
-      PORT: 3010
+      PORT: 3000
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
       NEXT_SERVER_HOST: ${NEXT_SERVER_HOST}
     networks:
-      - portfolio-network
+      - portfolio-2026-network
 
-  nginx:
+  portfolio-2026-nginx:
     build:
       context: ./nginx
       dockerfile: Dockerfile.prod
@@ -70,11 +70,11 @@ services:
       - frontend
       - backend
     networks:
-      - portfolio-network
+      - portfolio-2026-network
       - npm
 
 networks:
-  portfolio-network:
+  portfolio-2026-network:
     driver: bridge
   npm:
     external: true
