@@ -37,7 +37,7 @@ services:
     networks:
       - portfolio-2026-network
     volumes:
-      - ./apps/backend/public:/var/www/html/public
+      - ./apps/backend/public/miniature:/var/www/html/public/miniature
 
   portfolio-2026-frontend:
     build:
@@ -65,7 +65,7 @@ services:
     expose:
       - "80"
     volumes:
-      - ./apps/backend/public:/var/www/html/public:ro
+      - ./apps/backend/public/miniature:/var/www/html/public/miniature:ro
     depends_on:
       - portfolio-2026-frontend
       - portfolio-2026-backend
