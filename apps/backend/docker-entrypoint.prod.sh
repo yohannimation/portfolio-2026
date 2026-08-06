@@ -14,6 +14,11 @@ if [ -d "migrations" ]; then
     php bin/console doctrine:migrations:migrate --no-interaction
 fi
 
+echo ">> Syncing built assets to shared volume..."
+mkdir -p /var/www/html/public/build
+rsync -a --delete /var/www/html/public-src/build/ /var/www/html/public/build/
+chown -R www-data:www-data /var/www/html/public/build
+
 echo ">> Fixing permissions..."
 mkdir -p /var/www/html/var
 chown -R www-data:www-data /var/www/html/var
