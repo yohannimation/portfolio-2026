@@ -28,11 +28,19 @@ RUN composer dump-autoload --optimize --no-dev
 FROM node:20-alpine AS asset-builder
 WORKDIR /app
 
+# Install build tools for native npm modules
+RUN apk add --no-cache \
+        python3 \
+        make \
+        g++ \
+        gcc
+
 # Copy everything from the builder stage to get the vendor folder for local npm dependencies
 COPY --from=builder /var/www/html /app
 
 # Now we can install npm dependencies because the vendor folder exists
-RUN npm install
+# Using --verbose to help identify where it fails if it does
+RUN npm install --verbose
 RUN npm run build
 
 # Stage 3: Final
