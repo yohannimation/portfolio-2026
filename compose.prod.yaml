@@ -62,8 +62,8 @@ services:
       dockerfile: Dockerfile.prod
     container_name: portfolio-nginx-prod
     # restart: always
-    ports:
-      - "${NGINX_PORT:-80}:80"
+    expose:
+      - "80"
     volumes:
       - ./apps/backend/public:/var/www/html/public:ro
     depends_on:
