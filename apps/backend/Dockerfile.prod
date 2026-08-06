@@ -42,7 +42,8 @@ FROM php:8.3-fpm-alpine
 RUN apk add --no-cache \
         icu-libs \
         libzip \
-        bash
+        bash \
+        rsync
 
 WORKDIR /var/www/html
 
@@ -53,7 +54,7 @@ COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 # Copy optimized application from builder
 COPY --from=builder /var/www/html /var/www/html
 # Copy built assets from asset-builder
-COPY --from=asset-builder /app/public/build /var/www/html/public/build
+COPY --from=asset-builder /app/public/build /var/www/html/public-src/build
 
 # Create an empty .env file to prevent Symfony Dotenv from crashing in prod
 RUN touch /var/www/html/.env
