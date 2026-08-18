@@ -116,9 +116,7 @@ export default function ProfileSection() {
         </div>
         <div className="hidden lg:flex justify-center items-center lg:col-span-1 xl:col-span-1">
           <TiltedCard
-            imageSrc={
-              "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-            }
+            imageSrc={"/images/aboutme.png"}
             altText="Photo de Yohann"
             captionText="C'est moi :)"
             scaleOnHover={1.05}
