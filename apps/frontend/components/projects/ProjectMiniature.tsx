@@ -125,6 +125,7 @@ export default function ProjectMiniature({
           w-full max-w-[650px]
           h-full
           rounded-md
+          border-2 border-primary
           aspect-6/5
           overflow-hidden
         "
