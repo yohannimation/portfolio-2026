@@ -18,7 +18,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
       "
     >
       <p>Projet <span>{type.value}</span></p>
-      <p>{description}</p>
+      <p dangerouslySetInnerHTML={{ __html: description }} />
     </div>
   );
 }
