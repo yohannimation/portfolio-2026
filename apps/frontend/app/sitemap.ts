@@ -3,6 +3,8 @@ import type { MetadataRoute } from 'next'
 // Services
 import { categoryService } from "@/services/category.service";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://yohannimation.fr";
   const lastmodTime = new Date(2026, 7, 20, 0, 0);
