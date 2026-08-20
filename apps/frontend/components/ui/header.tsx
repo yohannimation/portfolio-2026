@@ -78,7 +78,7 @@ export default function Header() {
   }
 
   return (
-    <div className="fixed top-0 w-full z-2">
+    <div className="fixed top-0 w-full max-w-[1920px] z-2">
       <header className="relative pt-5 px-5">
         {
           isMobile ?
@@ -113,7 +113,7 @@ function HeaderDesktop({ pages, pageKey, isScrolled, scrollToTop }: HeaderDeskto
           hidden md:block
           mx-auto px-6
           relative
-          w-[80vw] h-full
+          w-[80vw] max-w-[calc(1920px-15%)] h-full
           bg-white
           rounded-md
           border border-primary
