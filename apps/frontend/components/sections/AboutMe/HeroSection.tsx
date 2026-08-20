@@ -29,7 +29,7 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-4 w-fit">
-            <ElasticButton>Mon CV</ElasticButton>
+            <ElasticButton anchor="/2026-CV_Yohann-RENAULD.pdf">Mon CV</ElasticButton>
           </div>
         </div>
 
