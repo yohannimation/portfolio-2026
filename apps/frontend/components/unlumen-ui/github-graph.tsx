@@ -585,7 +585,7 @@ export function GithubGraph({
         //   @{normalizedAccount ?? account}
         // </p>
         <p className="text-lg">
-          GitHub account : <Anchor href={`https://github.com/${normalizedAccount ?? account}`} target="_blank">@{normalizedAccount ?? account}</Anchor>
+          Compte GitHub : <Anchor href={`https://github.com/${normalizedAccount ?? account}`} target="_blank">@{normalizedAccount ?? account}</Anchor>
         </p>
       )}
 
