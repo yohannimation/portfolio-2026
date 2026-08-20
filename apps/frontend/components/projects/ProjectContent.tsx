@@ -18,18 +18,26 @@ interface ProjectContentInterface {
 const MAX_HEIGHT = 120;
 
 export default function ProjectContent({ type, description }: ProjectContentInterface) {
-  const [isExpanded, setIsExpanded] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [visuallyClamped, setVisuallyClamped] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [contentH, setContentH] = useState(0);
 
   useLayoutEffect(() => {
-    if (contentRef.current) {
-      if (contentRef.current.scrollHeight > MAX_HEIGHT) {
-        setShowButton(true);
-        setVisuallyClamped(true);
-      }
+    const el = contentRef.current;
+    if (!el) return;
+
+    const ro = new ResizeObserver(() => setContentH(el.scrollHeight));
+    ro.observe(el);
+    setContentH(el.scrollHeight);
+
+    if (el.scrollHeight > MAX_HEIGHT) {
+      setShowButton(true);
+      setVisuallyClamped(true);
     }
+
+    return () => ro.disconnect();
   }, [description]);
 
   const handleToggle = () => {
@@ -52,24 +60,32 @@ export default function ProjectContent({ type, description }: ProjectContentInte
     >
       <p><span className="underline">Projet</span> <span>{type.value}</span></p>
 
-      <div className="relative mt-2 p-5 bg-white border border-primary rounded-lg">
+      <motion.div
+        layout
+        className="relative mt-2 p-5 bg-white border border-primary rounded-lg"
+        animate={{ scale: isExpanded ? 1.025 : 1 }}
+        transition={{ type: "spring", stiffness: 280, damping: 28, mass: 0.9 }}
+        style={{ originX: 0.5, originY: 0 }}
+      >
         <motion.div
-          ref={contentRef}
-          animate={{
-            height: isExpanded ? "auto" : (showButton ? `${MAX_HEIGHT}px` : "auto")
-          }}
-          transition={{ height: { type: "spring", stiffness: 300, damping: 30, mass: 0.8 } }}
+          animate={{ height: isExpanded ? contentH : (showButton ? `${MAX_HEIGHT}px` : "auto") }}
+          transition={{ height: { type: "spring", stiffness: 340, damping: 34, mass: 0.9 } }}
           onAnimationComplete={() => {
-            if (!isExpanded && showButton) {
+            if (!isExpanded && showButton)
               setVisuallyClamped(true);
-            }
           }}
           className="overflow-hidden"
         >
-          <p
-            className={cn(visuallyClamped && "line-clamp-5")}
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          <motion.div
+            ref={contentRef}
+            animate={{ y: isExpanded ? 0 : -4 }}
+            transition={{ type: "spring", stiffness: 360, damping: 30, mass: 0.8 }}
+          >
+            <p
+              className={cn(visuallyClamped && "line-clamp-5")}
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </motion.div>
         </motion.div>
 
         {showButton && (
@@ -82,7 +98,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
             {isExpanded ? "Voir moins" : "Voir plus"}
           </Button>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }
