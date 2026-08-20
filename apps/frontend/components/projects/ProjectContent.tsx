@@ -15,7 +15,7 @@ interface ProjectContentInterface {
   description: string
 }
 
-const MAX_HEIGHT = 120;
+const MAX_HEIGHT = 125;
 
 export default function ProjectContent({ type, description }: ProjectContentInterface) {
   const [showButton, setShowButton] = useState(false);
@@ -78,7 +78,12 @@ export default function ProjectContent({ type, description }: ProjectContentInte
         >
           <motion.div ref={contentRef}>
             <p
-              className={cn(visuallyClamped && "line-clamp-5")}
+              className={
+                cn(
+                  visuallyClamped && "line-clamp-5",
+                  "[&_br]:block [&_br]:mb-2"
+                )
+              }
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </motion.div>
