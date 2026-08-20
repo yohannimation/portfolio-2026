@@ -22,17 +22,17 @@ export default function ProjectContent({ type, description }: ProjectContentInte
   const [isExpanded, setIsExpanded] = useState(false);
   const [visuallyClamped, setVisuallyClamped] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [contentH, setContentH] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
 
   useLayoutEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
+    const element = contentRef.current;
+    if (!element) return;
 
-    const ro = new ResizeObserver(() => setContentH(el.scrollHeight));
-    ro.observe(el);
-    setContentH(el.scrollHeight);
+    const ro = new ResizeObserver(() => setContentHeight(element.scrollHeight));
+    ro.observe(element);
+    setContentHeight(element.scrollHeight);
 
-    if (el.scrollHeight > MAX_HEIGHT) {
+    if (element.scrollHeight > MAX_HEIGHT) {
       setShowButton(true);
       setVisuallyClamped(true);
     }
@@ -68,7 +68,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
         style={{ originX: 0.5, originY: 0 }}
       >
         <motion.div
-          animate={{ height: isExpanded ? contentH : (showButton ? `${MAX_HEIGHT}px` : "auto") }}
+          animate={{ height: isExpanded ? contentHeight : (showButton ? `${MAX_HEIGHT}px` : "auto") }}
           transition={{ height: { type: "spring", stiffness: 340, damping: 34, mass: 0.9 } }}
           onAnimationComplete={() => {
             if (!isExpanded && showButton)
@@ -76,11 +76,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
           }}
           className="overflow-hidden"
         >
-          <motion.div
-            ref={contentRef}
-            animate={{ y: isExpanded ? 0 : -4 }}
-            transition={{ type: "spring", stiffness: 360, damping: 30, mass: 0.8 }}
-          >
+          <motion.div ref={contentRef}>
             <p
               className={cn(visuallyClamped && "line-clamp-5")}
               dangerouslySetInnerHTML={{ __html: description }}
