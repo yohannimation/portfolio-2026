@@ -58,7 +58,7 @@ export default function ProjectContent({ type, description }: ProjectContentInte
         md:aspect-6/5
       "
     >
-      <p><span className="underline">Projet</span> <span>{type.value}</span></p>
+      <p className="underline">Projet {type.value}</p>
 
       <motion.div
         layout
