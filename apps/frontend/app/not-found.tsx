@@ -15,14 +15,14 @@ export default function NotFound() {
   return (
     <div className="px-5 py-20 flex justify-center items-center flex-col lg:flex-row gap-10 lg:gap-15 xl:gap-30 h-dvh">
       <div className="flex justify-center items-center flex-col">
-        <h1 className="uppercase">Une erreur 404</h1>
+        <h1 className="uppercase">Page introuvable</h1>
         <p className="text-center">
-          Tu as découvert une page que je ne connaissais pas !<br/>
-          Mais reviens avec nous, ça sera mieux.
+          Comment t'as fais pour te retrouver ici ?! <br/>
+          Il n'y a que 4 pages sur mon site...
         </p>
 
         <ElasticButton anchor="/" className="mt-5 w-fit">
-          Retour à l'accueil
+          Retourner à l'accueil
         </ElasticButton>
       </div>
       <div className="relative w-[calc(149px*2)] xl:w-[calc(149px*3)] h-[350px] xl:h-full">
