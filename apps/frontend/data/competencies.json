@@ -12,15 +12,15 @@
                 "icon": "typescript"
             },
             {
-                "name": "React.JS",
+                "name": "React.js",
                 "icon": "react"
             },
             {
-                "name": "Next.JS",
+                "name": "Next.js",
                 "icon": "nextdotjs"
             },
             {
-                "name": "Vue.JS",
+                "name": "Vue.js",
                 "icon": "vuedotjs"
             },
             {
@@ -28,15 +28,15 @@
                 "icon": "angular"
             },
             {
-                "name": "Node.JS",
+                "name": "Node.js",
                 "icon": "nodedotjs"
             },
             {
-                "name": "Nest.JS",
+                "name": "Nest.js",
                 "icon": "nestjs"
             },
             {
-                "name": "Express.JS",
+                "name": "Express.js",
                 "icon": "express"
             },
             {
@@ -142,12 +142,36 @@
                 "icon": "docker"
             },
             {
+                "name": "Portainer",
+                "icon": "portainer"
+            },
+            {
+                "name": "Nginx",
+                "icon": "nginx"
+            },
+            {
+                "name": "Nginx Proxy Manager",
+                "icon": "nginxproxymanager"
+            },
+            {
+                "name": "Claude code",
+                "icon": "claudecode"
+            },
+            {
                 "name": "VSCode",
                 "icon": null
             },
             {
+                "name": "Google Search Console",
+                "icon": "googlesearchconsole"
+            },
+            {
                 "name": "Figma",
                 "icon": "figma"
+            },
+            {
+                "name": "Blender",
+                "icon": "blender"
             }
         ]
     }
