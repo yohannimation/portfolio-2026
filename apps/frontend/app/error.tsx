@@ -3,9 +3,7 @@
 import Image from "next/image";
 
 // UI components
-import { Button } from "@/components/ui/button";
 import ElasticButton from "@/components/ui/elasticButton";
-import Link from "next/link";
 
 export default function Error({
   error,
@@ -28,7 +26,7 @@ export default function Error({
         </ElasticButton>
       </div>
       <div className="relative w-[calc(149px*2)] xl:w-[calc(149px*3)] h-[350px] xl:h-full">
-        <Image src={"/images/bored-mascot.svg"} fill={true} alt="Bored mascot" />
+        <Image src={"/images/mascot/bored-mascot.svg"} fill={true} alt="Bored mascot" />
       </div>
     </div>
   );

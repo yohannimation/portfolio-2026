@@ -134,7 +134,7 @@ export default function HeroSection() {
 
       <div ref={scrollVelocityRef} className='absolute left-0 bottom-0 right-0 flex items-center min-h-[50px] bg-secondary overflow-hidden'>
         <ScrollVelocity
-          texts={[<>YOHANNIMATION&nbsp;<Image src={"/images/happy-mascot.png"} width={32} height={32} alt='Yohannimation mascot' loading="lazy" /></>]}
+          texts={[<>YOHANNIMATION&nbsp;<Image src={"/images/mascot/happy-mascot.png"} width={32} height={32} alt='Yohannimation mascot' loading="lazy" /></>]}
           velocity={90}
           damping={100}
           stiffness={600}
