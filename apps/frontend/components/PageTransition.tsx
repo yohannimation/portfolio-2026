@@ -50,28 +50,29 @@ export default function PageTransition({ children }: PageTransitionProps) {
     }
     
     // Handle link click function
-    const handleLinkClick = (e: Event) => {
-      const target = e.currentTarget as HTMLAnchorElement;
-      if (!target) return;
-      const url = new URL(target.href).pathname;
-
+    const handleLinkClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement)?.closest('a[href^="/"]') as HTMLAnchorElement | null;
+      if (!anchor) return;
+    
+      // Ignore les clics avec modificateur (ouverture nouvel onglet, etc.)
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (anchor.target === "_blank") return;
+    
+      const url = new URL(anchor.href).pathname;
+    
       if (url !== pathname) {
         e.preventDefault();
+        e.stopImmediatePropagation(); // empêche le onClick interne de <Link> de s'exécuter
         handleRouteChange(url);
       }
     }
 
     revealPage();
 
-    const links = document.querySelectorAll('a[href^="/"]');
-    links.forEach((link) => {
-      link.addEventListener("click", handleLinkClick);
-    })
+    document.addEventListener("click", handleLinkClick, true);
 
     return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleLinkClick);
-      })
+      document.removeEventListener("click", handleLinkClick, true);
     }
   }, [router, pathname])
 
