@@ -8,7 +8,6 @@ import { Button, buttonVariants } from "@/components/ui/button";
 
 // Animation components
 import Magnet from "@/components/Magnet";
-import ClickSpark from "@/components/ClickSpark";
 
 import { useIsMobile } from "@/lib/utils";
 
@@ -25,14 +24,7 @@ export default function Cta({
   const isMobile = useIsMobile();
 
   const content = (
-    <ClickSpark
-      sparkColor="#fff"
-      sparkSize={10}
-      sparkRadius={15}
-      sparkCount={8}
-      duration={400}
-      extraScale={1}
-    >
+    <>
       <Button
         className={className}
         variant={variant}
@@ -40,7 +32,7 @@ export default function Cta({
         asChild={asChild}
         {...props}
       />
-    </ClickSpark>
+    </>
   );
 
   if (isMobile) {
